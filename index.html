@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalysidex · Kalysian Pokédex</title>
+  <meta name="description" content="A searchable Pokédex of the Kalysian fakemon: stats, abilities, capabilities and move lists.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="#/" aria-label="Kalysidex home">
+        <span class="logo" aria-hidden="true">K</span>
+        <span class="brand-text">Kalysidex<small>Pokédex of the Kalysia region</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#/" data-nav="dex">Pokédex</a>
+        <a href="#/moves" data-nav="moves">Moves</a>
+        <a href="#/abilities" data-nav="abilities">Abilities</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="wrap" tabindex="-1">
+    <noscript><p>The Kalysidex needs JavaScript turned on to work.</p></noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>The Kalysidex is an unofficial, non-commercial fan project for a Pokémon tabletop game. Pokémon and Pokémon character names are trademarks of Nintendo, Creatures Inc. and GAME FREAK Inc. Kalysian Pokémon art belongs to the credited artists.</p>
+    </div>
+  </footer>
+
+  <!-- Data first, then the app. Later: items, etc. -->
+  <script src="data/collections.js"></script>
+  <script src="data/pokemon.js"></script>
+  <script src="data/pokemon-okeanos.js"></script>
+  <script src="data/pokemon-paradox.js"></script>
+  <script src="data/pokemon-pokepark.js"></script>
+  <script src="data/pokemon-event.js"></script>
+  <script src="data/pokemon-hisuian.js"></script>
+  <script src="data/moves.js"></script>
+  <script src="data/abilities.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

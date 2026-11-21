@@ -1,0 +1,78 @@
+Grytle
+Artist Credit: LateaRegion
+Base Stats:
+HP: 6
+Attack: 5
+Defense: 7
+Special Attack: 4
+Special Defense: 7
+Speed: 3
+
+Basic Information:
+Type: Grass
+Basic Ability 1: Anger Point
+Basic Ability 2: Overgrow
+Adv Ability 1: Grass Pelt
+Adv Ability 2: Rough Skin
+High Ability: Strong Jaw
+
+Evolution:
+1- Grytle
+2- Graguana Minimum 15
+3- Folisaurian Minimum 30
+
+Size Information:
+Height: 2’ 4” / 0.7m (Medium)
+Weight: 25 lbs / 11.3kg (1)
+
+Breeding Information:
+Gender Ratio: 85% M / 15% F
+Egg Group: Monster, Plant
+Average Hatch Rate: 10 Days
+
+Diet: Omnivore
+Habitat: Grassland, Marsh, Forest
+
+Capability List
+Darkvision, Naturewalk (Forest and Swampland)
+Pack Mon, Sprouter, Wall Climber, Underdog,
+Overland 4, Swim 2, Burrow 2, Jump 1/1, Power 3
+
+Skill List
+Athl 2d6, Acro 2d6, Combat 3d6+2, Stealth 3d6,
+Percep 1d6, Focus 3d6+2
+
+Move List
+Level Up Move List
+1 Tackle - Normal
+5 Defense Curl - Normal
+9 Vine Whip - Grass
+13 Bite - Dark
+17 Mega Drain - Grass
+21 Rollout - Rock
+25 Chip Away - Normal
+29 Magical Leaf - Grass
+33 Crunch - Dark
+37 Grassy Terrain - Grass
+41 Body Press- Normal
+45 Petal Dance - Grass
+
+TM Move List
+A4 Strength, 01 Hone Claws, 02 Dragon
+Claw, 06 Toxic, 10 Hidden Power, 11 Sunny Day, 17
+Protect, 21 Frustration, 22 Solarbeam, 26
+Earthquake, 27 Return, 28 Dig, 37 Sandstorm, 42
+Facade, 44 Rest, 45 Attract, 47 Low Sweep, 48
+Round, 53 Energy Ball, 65 Shadow Claw, 66
+Payback, 74 Gyro Ball, 78 Bulldoze, 82 Dragon Tail,
+88 Sleep Talk, 91 Flash Cannon, 94 Rock Smash
+
+Egg Move List
+Body Slam, Bullet Seed, Dragon Rush,
+Grassy Terrain, Growth, Head Smash, Iron Head,
+Leech Seed, Screech, Stomp, Superpower, Thrash
+
+Tutor Move List
+Belly Drum, Curse, Grass Pledge, Ice Fang,
+Iron Defense, Iron Tail, Poison Fang, Psychic Fang,
+Roar, Seed Bomb, Thunder Fang, Wide Guard
