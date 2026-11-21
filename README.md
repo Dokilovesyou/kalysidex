@@ -16,37 +16,6 @@ A searchable Pokédex for the Kalysian Pokémon. It is a plain website (HTML, CS
 - **Six dexes in one place:** the Kalysian Pokédex, Okeanos, Paradox, Poképark, Event and Expanded Hisuian. Use the **Dex** buttons above the filters to look at one, or leave it on *All* to search across everything. Each Pokémon's page shows which dex it's from and its previous/next buttons stay inside that dex.
 - Every filter is saved in the web address, so you can copy and share a link to a search.
 
-## Put it online for free with GitHub Pages
-
-The site is a few hundred files, and GitHub's website only accepts 100 files per upload, so the easiest way is the free **GitHub Desktop** app (Windows). It's drag-and-drop, no commands.
-
-**One-time setup**
-
-1. Make a free account at **github.com**.
-2. Install **GitHub Desktop** from desktop.github.com and sign in with that account.
-3. In GitHub Desktop choose **File → New repository…**. Name it `kalysidex`, leave the folder location as it is (note where it is, usually `Documents\GitHub`), and click **Create repository**.
-4. Unzip `kalysidex.zip` (right-click → Extract All). Open the unzipped `kalysidex` folder, press **Ctrl+A** to select everything inside it, then copy it (**Ctrl+C**) into the new repository folder from step 3 (**Ctrl+V**).
-5. Back in GitHub Desktop you'll see the files listed as changes. Type `Add Kalysidex` in the Summary box and click **Commit to main**.
-6. Click **Publish repository**. **Untick "Keep this code private"** (free accounts need a public repository for Pages) and click **Publish repository**.
-7. On github.com open your `kalysidex` repository, go to **Settings → Pages**. Under **Build and deployment** set **Source** to *Deploy from a branch*, pick branch **main** and folder **/ (root)**, and click **Save**.
-8. After a minute or two, your site is live at `https://YOUR-USERNAME.github.io/kalysidex/` (the Pages settings page shows the exact link).
-
-Keep in mind that a public repository means anyone with the link can see the site and its data.
-
-**To update the site later:** copy the new or changed files over the ones in your repository folder (same names, same folders, choose *Replace*), then in GitHub Desktop write a short summary, click **Commit to main**, then **Push origin** (or press **Ctrl+P**). The site refreshes in a minute or so.
-
-(You can use the website's **Add file → Upload files** instead, but it takes at most 100 files at a time, so it only suits small updates like `data/pokemon.js`.)
-
-## Pictures for the main Kalysian Pokédex (do this once)
-
-The five extra dexes already come with their pictures. The main dex's pictures are too big to ship, so they get made on your own computer:
-
-1. In Google Docs open **The Kalysian Pokedex v2.1.0 (K)**, then **File → Download → Web Page (.html, zipped)**. Unzip it (right-click → Extract All).
-2. Double-click `tools/import-dex.html` in the Kalysidex folder.
-3. Under *Folder from Google Docs* pick the unzipped folder. For *Dex id* type `kalysian`. Leave "Also create the data file" **unticked**.
-4. Press **Process** (a minute or so), then **Download zip**.
-5. Unzip the result into your Kalysidex folder, choosing **Replace/merge** when Windows asks. You'll get `img/pokemon/` and `img/thumbs/` filled in with all 133 pictures, already matched to the right Pokémon, resized and with white backgrounds on JPGs cleared.
-
 ## Adding another Pokédex later (Gym Type Shifts, Paldea, Divergent…)
 
 1. Download that Google Doc as **Web Page (.html, zipped)** and unzip it.
