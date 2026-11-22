@@ -31,4 +31,4 @@ Leave it on *All* to search across everything at once.
 
 ## About
 
-This is an unofficial, non-commercial fan project. Pokémon and Pokémon character names are trademarks of Nintendo, Creatures Inc. and GAME FREAK Inc. Kalysian Pokémon art belongs to the credited artists. The PTU tab uses data from the free fan-made *Pokémon: Tabletop United* Pokédex (Playtest 1.05 Plus); no official artwork is shown.
+This is an unofficial, non-commercial fan project. Pokémon and Pokémon character names are trademarks of Nintendo, Creatures Inc. and GAME FREAK Inc. Kalysian Pokémon art belongs to the credited artists. The PTU tab uses data from the free fan-made *Pokémon: Tabletop United* Pokédex (Playtest 1.05 Plus).
