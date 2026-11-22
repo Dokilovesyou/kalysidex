@@ -1,5 +1,7 @@
 # Kalysidex
 
+## 👉 [Open the Kalysidex](https://dokilovesyou.github.io/kalysidex/)
+
 A searchable Pokédex for the **Kalysia region** and the fan-made Pokémon of a Pokémon tabletop RPG group. It collects Pokémon that used to be spread across many separate documents into one place that works in any browser, on a computer or a phone.
 
 ## What's inside
