@@ -30,5 +30,10 @@ window.KALYSIDEX.collections = [
     "id": "hisuian",
     "name": "Expanded Hisuian Dex",
     "short": "Hisuian"
+  },
+  {
+    "id": "ptu",
+    "name": "Pokémon Tabletop United Pokédex",
+    "short": "PTU"
   }
 ];

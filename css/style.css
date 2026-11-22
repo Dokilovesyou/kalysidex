@@ -215,3 +215,5 @@ a.dexchip:hover { outline: 2px solid var(--accent); }
 .ftab { padding: .35rem .8rem; font-size: .85rem; font-weight: 600; text-decoration: none; color: var(--muted); border: 2px solid transparent; border-bottom: 0; border-radius: 10px 10px 0 0; margin-bottom: -2px; }
 .ftab:hover { color: var(--ink); }
 .ftab.on { color: var(--ink); background: var(--panel); border-color: var(--line); border-bottom: 2px solid var(--panel); }
+.entrynote { margin: 0 0 1rem; padding: .6rem .9rem; font-size: .9rem; color: var(--muted); }
+.gonly { font-size: .7rem; opacity: .7; margin-left: .3rem; }

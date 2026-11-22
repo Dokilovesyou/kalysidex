@@ -103,6 +103,8 @@
   const cleanArtist = a => (a ? a.replace(/^credits?\s*:?\s*/i, '').replace(/^.*\bLine\s*-\s*/i, '').trim() || undefined : undefined);
 
   function parseLevelMove(line) {
+    const gm = String(line).match(/^\s*\(([MF])\)\s*/i);   // "(M) 28 Charm - Fairy": only learned by one gender
+    if (gm) { const r = parseLevelMove(String(line).slice(gm[0].length)); if (r) r.only = gm[1].toUpperCase(); return r; }
     line = String(line).replace(/^[^A-Za-z0-9]+/, '').replace(/^0(?=evo\b)/i, '');   // "§ 12 Move", "0Evo - Move"
     const m = line.match(/^(\d+|evo|start)\b\s*[-–:.)]?\s*(.+)$/i);
     if (!m) return null;

@@ -464,7 +464,7 @@
     const h = p.height || {}, w = p.weight || {};
     const skills = Object.entries(p.skills || {});
 
-    const levelRows = (mv.levelUp || []).map(e => { const t = moveType(e.name, e.type); return `<tr><td>${esc(e.level)}</td><td>${moveLink(e.name, p, e.type)}</td><td>${t ? typeChip(t, false) : ''}</td></tr>`; }).join('');
+    const levelRows = (mv.levelUp || []).map(e => { const t = moveType(e.name, e.type); return `<tr><td>${esc(e.level)}</td><td>${moveLink(e.name, p, e.type)}${e.only ? ` <small class="gonly">${e.only === 'M' ? '♂' : '♀'} only</small>` : ''}</td><td>${t ? typeChip(t, false) : ''}</td></tr>`; }).join('');
     const tmRows = (mv.tm || []).map(e => `<div><span class="no">${esc(e.no || '')}</span>${moveLink(e.name, p)}</div>`).join('');
     const chipList = arr => `<div class="chips">${arr.map(n => { n = typeof n === 'string' ? n : n.name; const t = moveType(n); return `<a class="chip${t && p.types.includes(t) ? ' stab' : ''}" href="#/move/${key(n)}">${esc(n)}</a>`; }).join('')}</div>`;
 
@@ -480,6 +480,7 @@
           ${next ? `<a class="btn" href="${pokeLink(next)}">${esc(next.name)} ›</a>` : ''}
         </div>
       </div>
+      ${p.note ? `<p class="panel entrynote">${esc(p.note)}</p>` : ''}
       <div class="mon-grid">
         <div class="col">
           <section class="panel sprite-card">${formTabs.length > 1 ? `<div class="formtabs" role="tablist" aria-label="Forms of ${esc(p.formGroup)}">${formTabs.map(f => `<a role="tab" class="ftab${f.id === p.id ? ' on' : ''}" aria-selected="${f.id === p.id}" href="${pokeLink(f)}">${esc(f.formLabel || f.name)}</a>`).join('')}</div>` : ''}${imgTag(p, '', p.name)}${(p.gallery || []).length ? `<div class="gallery">${p.gallery.map(g => `<img src="${esc(g)}" alt="${esc(p.name)} (another picture)" loading="lazy" onerror="this.remove()">`).join('')}</div>` : ''}${p.artist ? `<p class="credit">Art by ${esc(p.artist)}</p>` : ''}</section>

@@ -1,38 +1,32 @@
 # Kalysidex
 
-A searchable Pokédex for the Kalysian Pokémon. It is a plain website (HTML, CSS and JavaScript): no server, no database, nothing to install.
+A searchable Pokédex for the **Kalysia region** and the fan-made Pokémon of a Pokémon tabletop RPG group. It collects Pokémon that used to be spread across many separate documents into one place that works in any browser, on a computer or a phone.
 
-**Try it right now:** double-click `index.html`. It opens in your browser and works offline.
+## What's inside
 
-## What it can do
+Seven Pokédexes, each with its own tab:
 
-- **Search** by Pokémon name. Suggestions also pop up for moves and abilities. Press `/` to jump to the search box.
-- **Filter** by type (pick two for dual types), ability, egg group, habitat, diet, size class and capability.
-- **Search by move:** type a move into "Learns move" and the table shows every Pokémon that learns it, with how (level, egg, TM, tutor). "Learned by" narrows it to one method.
-- **Sort** by name, any stat, base stat total, height, weight, or the level a move is learned. Click a column header or use the Sort menu.
-- **Move and ability pages** list every move or ability, with how many Pokémon have it. Click one to see who has it. You can still filter and sort from there.
-- **Colour themes:** each Pokémon's page takes on its primary type's colour (pink for Fairy, orange for Fire, and so on). Filtering by one type, or opening a move, does the same, and it follows light/dark mode.
-- **Custom moves and abilities** from your doc show their full details (frequency, damage base, range, effect…) on their pages. Hover an ability on a Pokémon's page to see its effect.
-- **Six dexes in one place:** the Kalysian Pokédex, Okeanos, Paradox, Poképark, Event and Expanded Hisuian. Use the **Dex** buttons above the filters to look at one, or leave it on *All* to search across everything. Each Pokémon's page shows which dex it's from and its previous/next buttons stay inside that dex.
-- Every filter is saved in the web address, so you can copy and share a link to a search.
+- **Kalysian Pokédex**: the main list of Kalysian Pokémon
+- **Okeanos Pokédex**
+- **Kalysian Paradox Pokémon**
+- **Poképark Fakemon**
+- **Kalysian Event Dex**
+- **Expanded Hisuian Dex**
+- **PTU**: the Pokémon Tabletop United Pokédex
 
-## Files
+Leave it on *All* to search across everything at once.
 
-| File | What it is |
-|---|---|
-| `index.html` | the page |
-| `css/style.css` | colours and layout |
-| `js/app.js` | search, filters, sorting and pages |
-| `js/parser.js` | reads pasted entries |
-| `data/pokemon.js` | the main Kalysian Pokédex data (you can edit this by hand) |
-| `data/pokemon-<dex>.js` | one file per extra dex (Okeanos, Paradox, Poképark, Event, Hisuian) |
-| `data/collections.js` | the list of dexes shown as tabs |
-| `data/moves.js`, `data/abilities.js` | details for the custom moves and abilities |
-| `tools/image-names.txt` | the file name each Pokémon's picture should have |
-| `img/pokemon/`, `img/thumbs/` | Pokémon pictures (full size and small list thumbnails) |
-| `tools/add-pokemon.html` | paste-in tool for adding Pokémon one at a time |
-| `tools/import-dex.html` | imports a whole Google Doc dex with its pictures |
+## What you can do
 
-## Coming later
+- **Search** by Pokémon name, and get suggestions for moves and abilities as you type.
+- **Filter** by type, ability, egg group, habitat, diet, size and capability.
+- **Look up a move** and see every Pokémon that learns it, and how: by level, egg, TM or tutor.
+- **Sort** by any stat, base stat total, height, weight or name.
+- **Browse moves and abilities** and see who has them.
+- **Read each Pokémon's page**: stats, abilities, evolution line, size, breeding info, capabilities, skills and full move lists. Pokémon with several forms show them as tabs over the picture.
+- **Share a search**: every filter is saved in the web address, so you can send a link to exactly what you're looking at.
+- **Themed by type**: pages take on the colour of the Pokémon's primary type.
 
-Items, the remaining dexes (Gym Type Shifts, Dojo Type Shifts, Paldea, Divergent) and details for the official moves can each get their own data file, loaded the same way.
+## About
+
+This is an unofficial, non-commercial fan project. Pokémon and Pokémon character names are trademarks of Nintendo, Creatures Inc. and GAME FREAK Inc. Kalysian Pokémon art belongs to the credited artists. The PTU tab uses data from the free fan-made *Pokémon: Tabletop United* Pokédex (Playtest 1.05 Plus); no official artwork is shown.
