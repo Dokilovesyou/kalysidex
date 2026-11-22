@@ -47457,7 +47457,85 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
       ],
       "egg": [],
       "tutor": ["Charge (N)", "Dark Pulse", "Discharge (N)", "Electroweb", "Mud-Slap", "Ominous Wind", "Pain Split", "Signal Beam", "Sleep Talk", "Snatch", "Snore", "Spite", "Sucker Punch", "Swift", "Telekinesis", "Trick (N)", "Uproar"]
-    }
+    },
+    "formGroup": "Rotom",
+    "formLabel": "Normal Form"
+  },
+  {
+    "id": "rotom-appliance-forms",
+    "collection": "ptu",
+    "name": "Rotom (Appliance Forms)",
+    "types": ["Electric"],
+    "stats": {"hp":5,"atk":7,"def":11,"spa":11,"spd":11,"spe":9},
+    "abilities": {
+      "basic": ["Poltergeist"],
+      "advanced": ["Static", "Motor Drive", "Volt Absorb"],
+      "high": ["Sequence"]
+    },
+    "evolution": [
+      {"stage":1,"name":"Rotom"}
+    ],
+    "height": {"ft":"1' 0\"","m":0.3,"size":"Small"},
+    "weight": {"lbs":0.7,"kg":0.3,"class":1},
+    "gender": {"genderless":true},
+    "eggGroups": ["Indeterminate"],
+    "hatchDays": 10,
+    "diet": ["Ergovore"],
+    "habitat": ["Urban"],
+    "capabilities": ["Overland 2", "Swim 2", "Levitate 4", "Jump 1/1", "Power 1", "Darkvision", "Dead Silent", "Glow", "Invisibility", "Phasing", "Underdog", "Wired", "Zapper", "Forme Change*"],
+    "skills": {},
+    "moves": {
+      "levelUp": [
+        {"level":1,"name":"Astonish","type":"Ghost"},
+        {"level":1,"name":"Confuse Ray","type":"Ghost"},
+        {"level":1,"name":"Thunder Wave","type":"Electric"},
+        {"level":1,"name":"Thunder Shock","type":"Electric"},
+        {"level":8,"name":"Uproar","type":"Normal"},
+        {"level":15,"name":"Double Team","type":"Normal"},
+        {"level":22,"name":"Shock Wave","type":"Electric"},
+        {"level":29,"name":"Ominous Wind","type":"Ghost"},
+        {"level":36,"name":"Substitute","type":"Normal"},
+        {"level":43,"name":"Electro Ball","type":"Electric"},
+        {"level":50,"name":"Hex","type":"Ghost"},
+        {"level":57,"name":"Charge","type":"Electric"},
+        {"level":64,"name":"Discharge","type":"Electric"}
+      ],
+      "tm": [
+        {"no":"06","name":"Toxic"},
+        {"no":"10","name":"Hidden Power"},
+        {"no":"11","name":"Sunny Day"},
+        {"no":"16","name":"Light Screen"},
+        {"no":"17","name":"Protect"},
+        {"no":"18","name":"Rain Dance"},
+        {"no":"21","name":"Frustration"},
+        {"no":"24","name":"Thunderbolt"},
+        {"no":"25","name":"Thunder"},
+        {"no":"27","name":"Return"},
+        {"no":"30","name":"Shadow Ball"},
+        {"no":"32","name":"Double Team"},
+        {"no":"33","name":"Reflect"},
+        {"no":"42","name":"Facade"},
+        {"no":"44","name":"Rest"},
+        {"no":"46","name":"Thief"},
+        {"no":"48","name":"Round"},
+        {"no":"57","name":"Charge Beam"},
+        {"no":"61","name":"Will-O-Wisp"},
+        {"no":"70","name":"Flash"},
+        {"no":"72","name":"Volt Switch"},
+        {"no":"73","name":"Thunder Wave"},
+        {"no":"77","name":"Psych Up"},
+        {"no":"85","name":"Dream Eater"},
+        {"no":"87","name":"Swagger"},
+        {"no":"88","name":"Sleep Talk"},
+        {"no":"90","name":"Substitute"},
+        {"no":"97","name":"Dark Pulse"}
+      ],
+      "egg": [],
+      "tutor": ["Charge (N)", "Dark Pulse", "Discharge (N)", "Electroweb", "Mud-Slap", "Ominous Wind", "Pain Split", "Signal Beam", "Sleep Talk", "Snatch", "Snore", "Spite", "Sucker Punch", "Swift", "Telekinesis", "Trick (N)", "Uproar"]
+    },
+    "note": "In the source book this entry is a short description. Appliance-form Rotoms change type: Heat Electric/Fire, Wash Electric/Water, Frost Electric/Ice, Fan Electric/Flying, Mow Electric/Grass. They are Medium size, Weight Class 3, and their capabilities, skills and moves change with the form (see the book). The abilities, moves and other details shown here are the Normal Form's.",
+    "formGroup": "Rotom",
+    "formLabel": "Appliance Forms"
   },
   {
     "id": "dedenne",

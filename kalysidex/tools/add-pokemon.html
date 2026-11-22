@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Pokémon · Kalysidex tools</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    textarea { width: 100%; min-height: 260px; font: .9rem/1.4 Consolas, monospace; padding: .7rem; border: 2px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); }
+    textarea:focus { border-color: var(--accent); outline: none; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+    @media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+    .warn { background: #fff2cc; color: #5b4200; border: 1px solid #e8cf7a; border-radius: 8px; padding: .5rem .8rem; margin: .5rem 0; font-size: .9rem; }
+    .ok { background: var(--accent-soft); border: 1px solid var(--line); border-radius: 8px; padding: .5rem .8rem; margin: .5rem 0; font-size: .9rem; }
+    .row { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin-top: .6rem; }
+    code { background: var(--accent-soft); padding: .05rem .35rem; border-radius: 4px; }
+    ul.staged { list-style: none; padding: 0; margin: .5rem 0 0; display: grid; gap: .35rem; }
+    ul.staged li { display: flex; justify-content: space-between; gap: .5rem; align-items: center; padding: .35rem .6rem; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+    .small { font-size: .85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="wrap bar">
+    <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">K</span><span class="brand-text">Kalysidex<small>Add Pokémon tool</small></span></a>
+    <nav class="nav"><a href="../index.html">← Back to the Pokédex</a></nav>
+  </div></header>
+
+  <main class="wrap">
+    <section class="panel hero">
+      <h1>Add Pokémon</h1>
+      <p>Paste one Pokémon's entry (copied from your doc), check the preview, and press <b>Add to list</b>. Repeat for as many as you like, then <b>Download pokemon.js</b> and use it to replace <code>data/pokemon.js</code> in your project. Nothing is uploaded anywhere; it all happens in this page.</p>
+    </section>
+
+    <section class="panel" style="margin-bottom:1rem">
+      <h2>Import a whole Pokédex file</h2>
+      <p class="small">Export your Google Doc as plain text (<b>File → Download → Plain text</b>), then choose that .txt file here. Every Pokémon is added to the list below, and any <b>MOVES</b> / <b>ABILITIES</b> sections at the end are read too.</p>
+      <div class="row"><input type="file" id="file" accept=".txt,text/plain"></div>
+      <div id="bulk-report" class="small"></div>
+      <div class="row"><button class="btn" id="dl-moves" disabled>Download moves.js</button><button class="btn" id="dl-abil" disabled>Download abilities.js</button></div>
+    </section>
+
+    <div class="two">
+      <section class="panel">
+        <h2>1. Paste an entry</h2>
+        <textarea id="paste" spellcheck="false" placeholder="Grytle&#10;Artist Credit: LateaRegion&#10;Base Stats:&#10;HP: 6&#10;Attack: 5&#10;…"></textarea>
+        <div class="row">
+          <label>Dex number (optional) <input id="dex" type="number" min="1" style="width:6rem;font:inherit;padding:.35rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)"></label>
+          <button class="btn primary" id="add" disabled>Add to list</button>
+          <button class="btn" id="clear" type="button">Clear</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>2. Check the preview</h2>
+        <div id="preview" class="small">Paste an entry on the left and the parsed result will appear here.</div>
+      </section>
+    </div>
+
+    <section class="panel" style="margin-top:1rem">
+      <h2>3. Your new Pokémon <span class="small" id="count"></span></h2>
+      <ul class="staged" id="staged"></ul>
+      <div class="row">
+        <button class="btn primary" id="download" disabled>Download pokemon.js</button>
+        <span class="small" id="dl-note"></span>
+      </div>
+      <p class="small">Images: save each sprite as <code>img/pokemon/&lt;id&gt;.png</code> (the id is shown next to each name above). Pokémon without an image show a “?” placeholder until you add one.</p>
+    </section>
+  </main>
+
+  <script src="../data/pokemon.js"></script>
+  <script src="../js/parser.js"></script>
+  <script>
+  (() => {
+    const P = window.KalysidexParser;
+    const existing = (window.KALYSIDEX && window.KALYSIDEX.pokemon) || [];
+    const $ = id => document.getElementById(id);
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const STORE = 'kalysidex-staged';
+    let staged = [], current = null;
+    try { staged = JSON.parse(localStorage.getItem(STORE) || '[]'); } catch (e) { staged = []; }
+    const save = () => { try { localStorage.setItem(STORE, JSON.stringify(staged)); } catch (e) { /* ignore */ } };
+
+    function preview() {
+      const text = $('paste').value.trim();
+      current = null; $('add').disabled = true;
+      if (!text) { $('preview').innerHTML = 'Paste an entry on the left and the parsed result will appear here.'; return; }
+      const { pokemon: p, warnings } = P.parseEntry(text);
+      const dex = parseInt($('dex').value, 10);
+      if (dex) p.dex = dex;
+      current = p; $('add').disabled = false;
+      const m = p.moves, st = p.stats;
+      const replacing = staged.some(x => x.id === p.id) || existing.some(x => x.id === p.id);
+      $('preview').innerHTML =
+        `<h2>${esc(p.name)} <span class="small">(id: ${esc(p.id)})</span></h2>
+         <p>${p.types.map(t => `<span class="type" data-t="${esc(t)}">${esc(t)}</span>`).join(' ') || '<i>no type</i>'}</p>
+         <p>HP ${st.hp ?? '?'} · Atk ${st.atk ?? '?'} · Def ${st.def ?? '?'} · SpA ${st.spa ?? '?'} · SpD ${st.spd ?? '?'} · Spe ${st.spe ?? '?'}</p>
+         <p>Abilities: ${esc([...p.abilities.basic, ...p.abilities.advanced, ...p.abilities.high].join(', ') || 'none')}</p>
+         <p>Evolution: ${esc(p.evolution.map(e => e.name + (e.minLevel ? ' (Lv ' + e.minLevel + ')' : '')).join(' → ') || 'none')}</p>
+         <p>Capabilities: ${p.capabilities.length} · Skills: ${Object.keys(p.skills).length}</p>
+         <p>Moves: ${m.levelUp.length} level-up · ${m.tm.length} TM · ${m.egg.length} egg · ${m.tutor.length} tutor</p>
+         ${warnings.length ? warnings.map(w => `<div class="warn">⚠ ${esc(w)}</div>`).join('') : '<div class="ok">✔ Everything was read successfully.</div>'}
+         ${replacing ? '<div class="warn">A Pokémon with this id is already in the dex or your list. Adding will <b>replace</b> it.</div>' : ''}`;
+    }
+
+    function renderStaged() {
+      $('staged').innerHTML = staged.length ? staged.slice(0, 12).map((p, i) =>
+        `<li><span><b>${esc(p.name)}</b> <span class="small">· id ${esc(p.id)} · image: img/pokemon/${esc(p.id)}.png</span></span><button class="btn" data-rm="${i}">Remove</button></li>`).join('')
+        : '<li class="small">Nothing added yet.</li>';
+      if (staged.length > 12) $('staged').insertAdjacentHTML('beforeend', '<li class="small">…and ' + (staged.length - 12) + ' more</li>');
+      $('count').textContent = staged.length ? `(${staged.length} waiting · ${existing.length} already in the dex)` : `(${existing.length} already in the dex)`;
+      $('download').disabled = !staged.length;
+      $('dl-note').textContent = staged.length ? 'Replace data/pokemon.js in your project with the downloaded file.' : '';
+    }
+
+    const download = (name, text) => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/javascript' })); a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+    };
+    let bulkMoves = [], bulkAbil = [];
+    $('file').addEventListener('change', async e => {
+      const f = e.target.files[0]; if (!f) return;
+      const raw = await f.text();
+      const d = P.parseDex(raw), s = P.parseSections(raw);
+      d.pokemon.forEach(p => { const i = staged.findIndex(x => x.id === p.id); if (i >= 0) staged[i] = p; else staged.push(p); });
+      save(); renderStaged();
+      bulkMoves = s.moves; bulkAbil = s.abilities;
+      $('dl-moves').disabled = !bulkMoves.length; $('dl-abil').disabled = !bulkAbil.length;
+      $('bulk-report').innerHTML = `<div class="ok">✔ Read <b>${d.pokemon.length}</b> Pokémon, <b>${s.moves.length}</b> moves and <b>${s.abilities.length}</b> abilities.</div>` +
+        (d.report.length ? `<div class="warn"><b>Please double-check these ${d.report.length}:</b><br>${d.report.map(r => esc(r.name) + ': ' + esc(r.warnings.join(' / '))).join('<br>')}</div>` : '');
+    });
+    $('dl-moves').addEventListener('click', () => download('moves.js', P.toDictFile('moves', bulkMoves, 'Custom Kalysian moves. Details shown on each move page. Add or edit entries by hand.')));
+    $('dl-abil').addEventListener('click', () => download('abilities.js', P.toDictFile('abilities', bulkAbil, 'Custom Kalysian abilities. Details shown on each ability page.')));
+    $('paste').addEventListener('input', preview);
+    $('dex').addEventListener('input', preview);
+    $('clear').addEventListener('click', () => { $('paste').value = ''; $('dex').value = ''; preview(); });
+    $('add').addEventListener('click', () => {
+      if (!current) return;
+      const i = staged.findIndex(x => x.id === current.id);
+      if (i >= 0) staged[i] = current; else staged.push(current);
+      save(); renderStaged();
+      $('paste').value = ''; $('dex').value = ''; preview(); $('paste').focus();
+    });
+    $('staged').addEventListener('click', e => {
+      const b = e.target.closest('[data-rm]'); if (!b) return;
+      staged.splice(+b.dataset.rm, 1); save(); renderStaged();
+    });
+    $('download').addEventListener('click', () => {
+      const merged = existing.map(p => JSON.parse(JSON.stringify(p, (k, v) => (k.startsWith('_') || k === 'learn' || k === 'abilSlots' || k === 'bst' ? undefined : v))));
+      staged.forEach(p => { const i = merged.findIndex(x => x.id === p.id); if (i >= 0) merged[i] = p; else merged.push(p); });
+      const blob = new Blob([P.toDataFile(merged)], { type: 'text/javascript' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = 'pokemon.js'; document.body.appendChild(a); a.click(); a.remove();
+    });
+    renderStaged();
+  })();
+  </script>
+</body>
+</html>

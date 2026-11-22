@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add pictures · Kalysidex tools</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .row { display: flex; gap: .8rem; flex-wrap: wrap; align-items: end; margin-top: .7rem; }
+    .row label { display: grid; gap: .2rem; font-size: .85rem; font-weight: 600; color: var(--muted); }
+    .row select, .row input[type=number] { padding: .45rem .6rem; border: 2px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font: inherit; }
+    .small { font-size: .85rem; color: var(--muted); }
+    .warn { background: #fff2cc; color: #5b4200; border: 1px solid #e8cf7a; border-radius: 8px; padding: .5rem .8rem; margin: .5rem 0; font-size: .9rem; }
+    .ok { background: var(--accent-soft); border: 1px solid var(--line); border-radius: 8px; padding: .5rem .8rem; margin: .5rem 0; font-size: .9rem; }
+    code { background: var(--accent-soft); padding: .05rem .35rem; border-radius: 4px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: .5rem; margin-top: .8rem; }
+    .grid figure { margin: 0; text-align: center; font-size: .72rem; }
+    .grid img { width: 80px; height: 80px; object-fit: contain; background: repeating-conic-gradient(#0000000d 0% 25%, transparent 0% 50%) 50% / 12px 12px; border-radius: 8px; }
+    progress { width: 100%; height: 1rem; }
+    .grid figure .ph { width: 80px; height: 80px; margin: 0 auto; display: grid; place-items: center; background: repeating-conic-gradient(#0000000d 0% 25%, transparent 0% 50%) 50% / 12px 12px; border-radius: 8px; color: var(--muted); }
+    .grid figure .ph img { width: 80px; height: 80px; object-fit: contain; background: none; }
+    .grid .fix { display: flex; gap: .2rem; justify-content: center; margin-top: .2rem; }
+    .grid .fix button { font: inherit; font-size: .65rem; padding: .1rem .3rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); cursor: pointer; }
+    .grid .fix button:hover { border-color: var(--accent); }
+    ol.steps li { margin: .35rem 0; }
+    details { margin-top: .5rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="wrap bar">
+    <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">K</span><span class="brand-text">Kalysidex<small>Add pictures</small></span></a>
+    <nav class="nav"><a href="../index.html">← Back to the Pokédex</a></nav>
+  </div></header>
+
+  <main class="wrap">
+    <section class="panel hero">
+      <h1>Add pictures to a dex</h1>
+      <p>Drop in a folder of pictures and this page matches them to the Pokémon in a dex, resizes them, and makes a zip you can unzip into your Kalysidex folder. Everything happens in your browser; nothing is uploaded.</p>
+      <ol class="steps small">
+        <li>Extract your pictures into one folder (all the images together, subfolders are fine).</li>
+        <li>Pick the folder below and choose the dex. <b>Preview matches</b> shows which picture went with which Pokémon.</li>
+        <li>Fix any mismatches by clicking the buttons under a tile, press <b>Make zip</b>, then <b>Download zip</b>, and unzip it over your Kalysidex folder (choose Replace if asked).</li>
+      </ol>
+      <p class="small">Pictures are matched either by <b>file name</b> (<code>bulbasaur.png</code>, or <code>Deoxys Attack Forme.png</code>) or by <b>order</b> (the 1st picture goes with the 1st Pokémon in the dex, and so on, in file-name order). Order is what you want for pictures taken out of a PDF in page order.</p>
+    </section>
+
+    <section class="panel" style="margin-bottom:1rem">
+      <div class="row">
+        <label>Folder of pictures <input type="file" id="folder" webkitdirectory directory multiple></label>
+        <label>Dex <select id="dex"></select></label>
+        <label>Match by <select id="mode"><option value="auto">Automatic</option><option value="name">File name</option><option value="order">Order</option></select></label>
+        <label>Skip the first … pictures (order only) <input type="number" id="skip" min="0" value="0" style="width:6rem"></label>
+      </div>
+      <div class="row"><label style="display:flex;gap:.4rem;align-items:center;font-weight:400"><input type="checkbox" id="clear" checked> Clear plain white / grey-and-white checkerboard backgrounds around the picture</label></div>
+      <div class="row"><button class="btn" id="go" disabled>Preview matches</button><button class="btn" id="make" disabled>Make zip</button><button class="btn" id="dl" disabled>Download zip</button></div>
+      <progress id="prog" value="0" max="1" hidden></progress>
+      <div id="report"></div>
+      <div id="fixbar" class="row" hidden style="position:sticky;top:0;z-index:5;background:var(--panel);padding:.5rem 0;border-bottom:1px solid var(--line)"><span id="stat" class="small"></span><label style="display:flex;gap:.4rem;align-items:center;font-weight:400">Jump to <input type="text" id="find" placeholder="Pokémon name" style="padding:.3rem .5rem;border:2px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)"></label></div>
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+
+  <script src="../data/collections.js"></script>
+  <script src="../data/pictures.js"></script>
+  <script src="../data/pokemon.js"></script>
+  <script src="../data/pokemon-okeanos.js"></script>
+  <script src="../data/pokemon-paradox.js"></script>
+  <script src="../data/pokemon-pokepark.js"></script>
+  <script src="../data/pokemon-event.js"></script>
+  <script src="../data/pokemon-hisuian.js"></script>
+  <script src="../data/pokemon-ptu.js"></script>
+  <script>
+  (() => {
+    const K = window.KALYSIDEX || {};
+    const ALL = K.pokemon || [], COLLS = K.collections || [];
+    const PICS = Object.assign({}, K.pictures || {});
+    const $ = id => document.getElementById(id);
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, '');
+    const msg = (cls, html) => { const d = document.createElement('div'); d.className = cls; d.innerHTML = html; $('report').appendChild(d); };
+    const collOf = p => p.collection || (COLLS[0] || {}).id;
+    // PTU pictures go in their own folder so they are easy to remove again; everything else uses img/
+    const BASE = { ptu: 'img/official' };
+    let files = [], zipBlob = null;
+
+    $('dex').innerHTML = COLLS.map(c => `<option value="${c.id}">${esc(c.name)} (${ALL.filter(p => collOf(p) === c.id).length})</option>`).join('');
+    const ptuOpt = [...$('dex').options].find(o => o.value === 'ptu'); if (ptuOpt) $('dex').value = 'ptu';
+
+    $('folder').addEventListener('change', e => {
+      files = [...e.target.files].filter(f => /\.(png|jpe?g|webp|gif|bmp)$/i.test(f.name));
+      zipBlob = null; $('dl').disabled = true; $('make').disabled = true; $('go').disabled = !files.length; $('go').dataset.ready = ''; $('report').innerHTML = ''; $('grid').innerHTML = ''; $('fixbar').hidden = true; state = { list: [], mode: 'order', excluded: new Set(), gaps: new Set() };
+      if (files.length) msg('ok', `Found <b>${files.length}</b> pictures. Pick the dex and press <b>Preview matches</b>.`);
+      else msg('warn', 'No pictures (.png .jpg .webp .gif) found in that folder.');
+    });
+
+    /* natural sort: image2 before image10, page numbers in order */
+    const natural = (a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' });
+    const relPath = f => f.webkitRelativePath || f.name;
+
+    /* ---------- matching ---------- */
+    function keysFor(p) {
+      const ks = new Set([norm(p.id), norm(p.name)]);
+      ks.add(norm(p.name.replace(/\s*\(.*?\)\s*/g, ' ')));                       // "Deoxys (Attack Forme)" -> deoxys
+      if (p.formGroup && p.formLabel) { ks.add(norm(p.formGroup + p.formLabel)); ks.add(norm(p.formLabel + p.formGroup)); }
+      return [...ks].filter(Boolean);
+    }
+    function fileKey(f) {
+      const stem = f.name.replace(/\.[^.]+$/, '');
+      return [norm(stem), norm(stem.replace(/^[\d\s._#-]+/, '')), norm(stem.replace(/[\d\s._#-]+$/, ''))].filter(Boolean);
+    }
+    function matchByName(list, imgs) {
+      const index = new Map();   // key -> list of entries (most specific keys first)
+      list.forEach(p => keysFor(p).forEach((k, i) => { if (!index.has(k)) index.set(k, []); index.get(k).push({ p, i }); }));
+      const out = new Map(), used = new Set();
+      // exact id/name matches first, then looser ones
+      for (const pass of [0, 1]) {
+        imgs.forEach(f => {
+          if (used.has(f)) return;
+          for (const k of fileKey(f)) {
+            const hits = (index.get(k) || []).filter(h => !out.has(h.p) && (pass === 0 ? h.i <= 1 : true));
+            if (hits.length) { hits.sort((a, b) => a.i - b.i); out.set(hits[0].p, f); used.add(f); break; }
+          }
+        });
+      }
+      return out;
+    }
+    function matchByOrder(list, imgs, skip) {
+      const sorted = imgs.slice().sort(natural).slice(skip), out = new Map();
+      list.forEach((p, i) => { if (sorted[i]) out.set(p, sorted[i]); });
+      return out;
+    }
+
+    /* ---------- pictures ---------- */
+    function clearBackground(data, w, h, tol = 28) {
+      // flood-fill from the border over near-white / light-grey-neutral pixels (also catches a baked-in checkerboard)
+      const seen = new Uint8Array(w * h), stack = [];
+      const isBg = o => { const r = data[o], g = data[o + 1], b = data[o + 2]; const mx = Math.max(r, g, b), mn = Math.min(r, g, b); return mn >= 255 - tol || (mx - mn <= 10 && mn >= 175); };
+      for (let x = 0; x < w; x++) stack.push(x, (h - 1) * w + x);
+      for (let y = 0; y < h; y++) stack.push(y * w, y * w + w - 1);
+      while (stack.length) {
+        const i = stack.pop();
+        if (seen[i]) continue; seen[i] = 1;
+        const o = i * 4;
+        if (data[o + 3] < 16 || !isBg(o)) continue;
+        data[o + 3] = 0;
+        const x = i % w, y = (i / w) | 0;
+        if (x > 0) stack.push(i - 1); if (x < w - 1) stack.push(i + 1);
+        if (y > 0) stack.push(i - w); if (y < h - 1) stack.push(i + w);
+      }
+    }
+    const toBlob = c => new Promise(r => c.toBlob(r, 'image/png'));
+    async function makePictures(file, clear) {
+      const bmp = await createImageBitmap(file);
+      const scale = Math.min(1, 900 / Math.max(bmp.width, bmp.height));
+      const w = Math.max(1, Math.round(bmp.width * scale)), h = Math.max(1, Math.round(bmp.height * scale));
+      const c = document.createElement('canvas'); c.width = w; c.height = h;
+      const x = c.getContext('2d', { willReadFrequently: true });
+      x.drawImage(bmp, 0, 0, w, h); bmp.close();
+      let img = x.getImageData(0, 0, w, h);
+      let hasAlpha = false; for (let i = 3; i < img.data.length; i += 4 * 17) if (img.data[i] < 250) { hasAlpha = true; break; }
+      if (clear && !hasAlpha) { clearBackground(img.data, w, h); x.putImageData(img, 0, 0); }
+      let x0 = w, y0 = h, x1 = -1, y1 = -1;
+      for (let yy = 0; yy < h; yy++) for (let xx = 0; xx < w; xx++) if (img.data[(yy * w + xx) * 4 + 3] > 16) { if (xx < x0) x0 = xx; if (xx > x1) x1 = xx; if (yy < y0) y0 = yy; if (yy > y1) y1 = yy; }
+      if (x1 < 0) { x0 = 0; y0 = 0; x1 = w - 1; y1 = h - 1; }
+      const m = Math.round(Math.max(x1 - x0, y1 - y0) * 0.04);
+      x0 = Math.max(0, x0 - m); y0 = Math.max(0, y0 - m); x1 = Math.min(w - 1, x1 + m); y1 = Math.min(h - 1, y1 + m);
+      const cw = x1 - x0 + 1, ch = y1 - y0 + 1;
+      const shrink = max => { const s = Math.min(1, max / Math.max(cw, ch)); const o = document.createElement('canvas'); o.width = Math.max(1, Math.round(cw * s)); o.height = Math.max(1, Math.round(ch * s));
+        const ox = o.getContext('2d'); ox.imageSmoothingQuality = 'high'; ox.drawImage(c, x0, y0, cw, ch, 0, 0, o.width, o.height); return o; };
+      return { full: await toBlob(shrink(320)), thumb: await toBlob(shrink(96)) };
+    }
+
+    /* ---------- minimal zip writer ---------- */
+    const CRC = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+    const crc32 = u8 => { let c = 0xFFFFFFFF; for (let i = 0; i < u8.length; i++) c = CRC[(c ^ u8[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; };
+    function makeZip(entries) {
+      const enc = new TextEncoder(), parts = [], central = []; let offset = 0;
+      for (const e of entries) {
+        const nm = enc.encode(e.name), crc = crc32(e.data), sz = e.data.length;
+        const lh = new DataView(new ArrayBuffer(30));
+        lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true); lh.setUint16(10, 0, true); lh.setUint16(12, 0x21, true);
+        lh.setUint32(14, crc, true); lh.setUint32(18, sz, true); lh.setUint32(22, sz, true); lh.setUint16(26, nm.length, true);
+        parts.push(lh.buffer, nm, e.data);
+        const ch = new DataView(new ArrayBuffer(46));
+        ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true); ch.setUint16(14, 0x21, true);
+        ch.setUint32(16, crc, true); ch.setUint32(20, sz, true); ch.setUint32(24, sz, true); ch.setUint16(28, nm.length, true); ch.setUint32(42, offset, true);
+        central.push(ch.buffer, nm); offset += 30 + nm.length + sz;
+      }
+      const csize = central.reduce((n, b) => n + (b.byteLength || b.length), 0);
+      const end = new DataView(new ArrayBuffer(22));
+      end.setUint32(0, 0x06054b50, true); end.setUint16(8, entries.length, true); end.setUint16(10, entries.length, true); end.setUint32(12, csize, true); end.setUint32(16, offset, true);
+      return new Blob([...parts, ...central, end.buffer], { type: 'application/zip' });
+    }
+
+    /* ---------- preview (fast) with click-to-fix ---------- */
+    let state = { list: [], mode: 'order', excluded: new Set(), gaps: new Set() };
+    const urlCache = new Map();
+    const urlOf = f => { if (!urlCache.has(f)) urlCache.set(f, URL.createObjectURL(f)); return urlCache.get(f); };
+    function compute() {
+      const { list, mode, excluded, gaps } = state, out = new Map();
+      if (mode === 'name') { matchByName(list, files).forEach((f, p) => out.set(p, f)); return out; }
+      const skip = Math.max(0, parseInt($('skip').value, 10) || 0);
+      const seq = files.slice().sort(natural).slice(skip).filter(f => !excluded.has(f));
+      let k = 0;
+      for (const p of list) { if (gaps.has(p)) continue; if (k < seq.length) out.set(p, seq[k++]); }
+      state.left = seq.length - k;   // pictures not used by anyone
+      return out;
+    }
+    function render() {
+      const m = compute(); state.matched = m;
+      const grid = $('grid'); const keepY = window.scrollY; grid.innerHTML = '';
+      state.list.forEach((p, i) => {
+        const f = m.get(p), fig = document.createElement('figure'); fig.dataset.name = p.name.toLowerCase();
+        fig.innerHTML = `<div class="ph">${f ? `<img src="${urlOf(f)}" alt="" loading="lazy" decoding="async">` : '<span>none</span>'}</div><figcaption><b>${i + 1}.</b> ${esc(p.name)}</figcaption>` +
+          (state.mode === 'order' ? `<div class="fix">${f ? `<button data-x="${i}" title="This picture is not this Pokémon's art (an icon, a second picture of the previous one…). Remove it and move everything up.">✕ junk</button>` : ''}<button data-g="${i}" title="${state.gaps.has(p) ? 'Give this Pokémon a picture again' : 'This Pokémon has no picture in the folder. Leave it empty and move everything down.'}">${state.gaps.has(p) ? '↺ undo' : '∅ none'}</button></div>` : '');
+        grid.appendChild(fig);
+      });
+      window.scrollTo(0, keepY);
+      $('stat').innerHTML = `<b>${m.size}</b> of ${state.list.length} Pokémon have a picture` + (state.mode === 'order' ? ` · ${state.excluded.size} removed as junk · ${state.gaps.size} marked empty · ${state.left || 0} pictures left over at the end` : '');
+      $('make').disabled = !m.size;
+    }
+    $('grid').addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      if (b.dataset.x !== undefined) { const f = state.matched.get(state.list[+b.dataset.x]); if (f) state.excluded.add(f); }
+      if (b.dataset.g !== undefined) { const p = state.list[+b.dataset.g]; state.gaps.has(p) ? state.gaps.delete(p) : state.gaps.add(p); }
+      render();
+    });
+    $('find').addEventListener('input', () => {
+      const q = $('find').value.trim().toLowerCase(); if (!q) return;
+      const t = [...$('grid').children].find(x => x.dataset.name.includes(q)); if (t) t.scrollIntoView({ block: 'center' });
+    });
+    $('skip').addEventListener('change', () => { if (state.list.length) render(); });
+    $('mode').addEventListener('change', () => { if (files.length && $('go').dataset.ready) $('go').click(); });
+
+    $('go').addEventListener('click', () => {
+      $('report').innerHTML = ''; $('dl').disabled = true; zipBlob = null; $('fixbar').hidden = false;
+      const dexId = $('dex').value, list = ALL.filter(p => collOf(p) === dexId);
+      let mode = $('mode').value;
+      const byName = matchByName(list, files);
+      if (mode === 'auto') mode = byName.size >= Math.min(list.length, files.length) * 0.5 ? 'name' : 'order';
+      state = { list, mode, excluded: new Set(), gaps: new Set() };
+      $('go').dataset.ready = '1';
+      msg('ok', `Matching by <b>${mode === 'name' ? 'file name' : 'order'}</b> (${files.length} pictures in the folder, ${list.length} Pokémon in this dex).` + (mode === 'order' ? ' <b>Scroll through the preview below.</b> At the first Pokémon whose picture is wrong, work out why: if its picture is junk (an icon, a stray second picture), press <b>✕ junk</b> on it; if the Pokémon simply has no picture in the folder, press <b>∅ none</b> on it. Everything after it lines up again at once. Repeat down the list, then press <b>Make zip</b>.' : ''));
+      render();
+    });
+
+    /* ---------- make the zip (slow) ---------- */
+    $('make').addEventListener('click', async () => {
+      $('make').disabled = true; $('dl').disabled = true;
+      try {
+        const dexId = $('dex').value, list = state.list, matched = state.matched;
+        const base = BASE[dexId] || 'img', clear = $('clear').checked, out = [];
+        $('prog').hidden = false; $('prog').max = matched.size; $('prog').value = 0;
+        let done = 0; const failed = [];
+        for (const p of list) {
+          const f = matched.get(p); if (!f) continue;
+          try {
+            const pics = await makePictures(f, clear);
+            out.push({ name: base + '/pokemon/' + p.id + '.png', data: new Uint8Array(await pics.full.arrayBuffer()) });
+            out.push({ name: base + '/thumbs/' + p.id + '.png', data: new Uint8Array(await pics.thumb.arrayBuffer()) });
+          } catch (err) { failed.push(p.name); }
+          $('prog').value = ++done; if (done % 5 === 0) await new Promise(r => setTimeout(r));
+        }
+        $('prog').hidden = true;
+        if (failed.length) msg('warn', 'Could not read the picture for: ' + esc(failed.join(', ')));
+        if (!out.length) msg('warn', 'Nothing to put in the zip.');
+        else {
+          PICS[dexId] = base;
+          const js = '// Which dexes have extra pictures, and the folder they live in.\n// tools/add-pictures.html writes this file for you. An empty list means "no extra pictures".\nwindow.KALYSIDEX = window.KALYSIDEX || {};\nwindow.KALYSIDEX.pictures = ' + JSON.stringify(PICS, null, 2) + ';\n';
+          out.push({ name: 'data/pictures.js', data: new TextEncoder().encode(js) });
+          zipBlob = makeZip(out); $('dl').disabled = false;
+          msg('ok', `Zip ready: <b>${out.length}</b> files, ${(zipBlob.size / 1048576).toFixed(1)} MB. Press <b>Download zip</b> and unzip it over your Kalysidex folder.` + (base !== 'img' ? ` These go in <code>${base}/</code>, so you can remove them all later by deleting that one folder.` : ''));
+        }
+      } catch (err) { console.error(err); msg('warn', 'Something went wrong: ' + esc(err.message)); }
+      $('make').disabled = false;
+    });
+    $('dl').addEventListener('click', () => {
+      if (!zipBlob) return;
+      const a = document.createElement('a'); a.href = URL.createObjectURL(zipBlob); a.download = 'kalysidex-pictures-' + $('dex').value + '.zip'; a.click();
+    });
+  })();
+  </script>
+</body>
+</html>

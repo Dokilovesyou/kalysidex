@@ -41,6 +41,7 @@
   const pokeLink = p => `#/pokemon/${encodeURIComponent(p.id)}`;
 
   /* ---------- build indexes ---------- */
+  const PICS = K.pictures || {};
   const COLLS = Array.isArray(K.collections) ? K.collections : [];
   const collOf = p => p.collection || (COLLS[0] && COLLS[0].id) || '';
   const collName = id => (COLLS.find(c => c.id === id) || {}).short || id;
@@ -89,6 +90,7 @@
 
     byId.set(p.id, p);
     p.collection = collOf(p);
+    if (!p.image && PICS[p.collection]) p.image = PICS[p.collection] + '/pokemon/' + p.id + '.png';   // pictures added later through tools/add-pictures.html
     if (p.formGroup && !byGroup.has(p.collection + '|' + key(p.formGroup))) byGroup.set(p.collection + '|' + key(p.formGroup), p);
     if (!byNameKey.has(key(p.name))) byNameKey.set(key(p.name), p);
     if (!byNKey.has(nkey(p.name))) byNKey.set(nkey(p.name), p);
