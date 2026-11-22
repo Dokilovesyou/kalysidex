@@ -241,7 +241,19 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Air Cutter", "Air Slash", "Aqua Cutter", "Cross Poison", "Fury Cutter", "Leaf Blade", "Night Slash (N)", "Psycho Cut", "Sacred Sword (N)", "Slash (N)", "Solar Blade"]
+      "tutor": [
+        "Air Cutter",
+        "Air Slash",
+        "Aqua Cutter",
+        "Cross Poison",
+        "Fury Cutter",
+        "Leaf Blade",
+        {"name":"Night Slash","natural":true},
+        "Psycho Cut",
+        {"name":"Sacred Sword","natural":true},
+        {"name":"Slash","natural":true},
+        "Solar Blade"
+      ]
     }
   },
   {
@@ -344,7 +356,22 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Air Cutter", "Air Slash", "Aqua Cutter", "Breaking Swipe", "Cross Poison", "Draco Meteor", "Dragon Pulse", "Fury Cutter", "Leaf Blade", "Night Slash (N)", "Psycho Cut", "Sacred Sword (N)", "Slash (N)", "Solar Blade"]
+      "tutor": [
+        "Air Cutter",
+        "Air Slash",
+        "Aqua Cutter",
+        "Breaking Swipe",
+        "Cross Poison",
+        "Draco Meteor",
+        "Dragon Pulse",
+        "Fury Cutter",
+        "Leaf Blade",
+        {"name":"Night Slash","natural":true},
+        "Psycho Cut",
+        {"name":"Sacred Sword","natural":true},
+        {"name":"Slash","natural":true},
+        "Solar Blade"
+      ]
     }
   },
   {
@@ -447,7 +474,22 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Air Cutter", "Air Slash", "Aqua Cutter", "Breaking Swipe", "Cross Poison", "Draco Meteor", "Dragon Pulse", "Fury Cutter", "Leaf Blade", "Night Slash (N)", "Psycho Cut", "Sacred Sword (N)", "Slash (N)", "Solar Blade"]
+      "tutor": [
+        "Air Cutter",
+        "Air Slash",
+        "Aqua Cutter",
+        "Breaking Swipe",
+        "Cross Poison",
+        "Draco Meteor",
+        "Dragon Pulse",
+        "Fury Cutter",
+        "Leaf Blade",
+        {"name":"Night Slash","natural":true},
+        "Psycho Cut",
+        {"name":"Sacred Sword","natural":true},
+        {"name":"Slash","natural":true},
+        "Solar Blade"
+      ]
     }
   },
   {
@@ -539,7 +581,19 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"95","name":"Snarl"}
       ],
       "egg": ["Chip Away", "Endure", "Feint", "Feint Attack", "Head Smash", "Metal Claw", "Night Slash", "Play Rough", "Take Down"],
-      "tutor": ["Ancient Power", "Covet", "Earth Power", "Fire Fang (N)", "Helping Hand", "Ice Fang", "Iron Tail", "Knock Off", "Swift", "Thunder Fang (N)", "Trailblaze"]
+      "tutor": [
+        "Ancient Power",
+        "Covet",
+        "Earth Power",
+        {"name":"Fire Fang","natural":true},
+        "Helping Hand",
+        "Ice Fang",
+        "Iron Tail",
+        "Knock Off",
+        "Swift",
+        {"name":"Thunder Fang","natural":true},
+        "Trailblaze"
+      ]
     }
   },
   {
@@ -632,7 +686,26 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"95","name":"Snarl"}
       ],
       "egg": [],
-      "tutor": ["Ancient Power", "Body Slam", "Covet", "Earth Power", "Fire Fang (N)", "Foul Play", "Heat Wave", "Helping Hand", "Ice Fang", "Iron Head", "Iron Tail", "Knock Off", "Mud Bomb", "Sleep Talk", "Snore", "Swift", "Thunder Fang (N)", "Zen Headbutt"]
+      "tutor": [
+        "Ancient Power",
+        "Body Slam",
+        "Covet",
+        "Earth Power",
+        {"name":"Fire Fang","natural":true},
+        "Foul Play",
+        "Heat Wave",
+        "Helping Hand",
+        "Ice Fang",
+        "Iron Head",
+        "Iron Tail",
+        "Knock Off",
+        "Mud Bomb",
+        "Sleep Talk",
+        "Snore",
+        "Swift",
+        {"name":"Thunder Fang","natural":true},
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -728,7 +801,26 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"95","name":"Snarl"}
       ],
       "egg": [],
-      "tutor": ["Ancient Power", "Body Slam", "Covet", "Earth Power", "Fire Fang (N)", "Foul Play", "Heat Wave", "Helping Hand", "Ice Fang", "Iron Head", "Iron Tail", "Knock Off", "Mud Bomb", "Sleep Talk", "Snore", "Swift", "Thunder Fang (N)", "Zen Headbutt"]
+      "tutor": [
+        "Ancient Power",
+        "Body Slam",
+        "Covet",
+        "Earth Power",
+        {"name":"Fire Fang","natural":true},
+        "Foul Play",
+        "Heat Wave",
+        "Helping Hand",
+        "Ice Fang",
+        "Iron Head",
+        "Iron Tail",
+        "Knock Off",
+        "Mud Bomb",
+        "Sleep Talk",
+        "Snore",
+        "Swift",
+        {"name":"Thunder Fang","natural":true},
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -1267,7 +1359,6 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"A1","name":"Cut"},
         {"no":"01","name":"Hone Claws"},
         {"no":"02","name":"Dragon Claw"},
-        {"no":"0","name":"6"},
         {"name":"Toxic"},
         {"no":"10","name":"Hidden Power"},
         {"no":"12","name":"Taunt"},
@@ -1339,7 +1430,6 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"A1","name":"Cut"},
         {"no":"01","name":"Hone Claws"},
         {"no":"02","name":"Dragon Claw"},
-        {"no":"0","name":"6"},
         {"name":"Toxic"},
         {"no":"10","name":"Hidden Power"},
         {"no":"12","name":"Taunt"},
@@ -1361,7 +1451,16 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Fire Fang (N)", "Fury Cutter", "Iron Tail", "Mud-Slap", "Snatch", "Swift (N)", "Trick", "U-Turn"]
+      "tutor": [
+        {"name":"Fire Fang","natural":true},
+        "Fury Cutter",
+        "Iron Tail",
+        "Mud-Slap",
+        "Snatch",
+        {"name":"Swift","natural":true},
+        "Trick",
+        "U-Turn"
+      ]
     }
   },
   {
@@ -1412,7 +1511,6 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"A1","name":"Cut"},
         {"no":"01","name":"Hone Claws"},
         {"no":"02","name":"Dragon Claw"},
-        {"no":"0","name":"6"},
         {"name":"Toxic"},
         {"no":"10","name":"Hidden Power"},
         {"no":"12","name":"Taunt"},
@@ -1434,7 +1532,24 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Assurance", "Covet", "Fire Fang (N)", "Fury Cutter", "Hyper Fang", "Iron Tail", "Memento", "Mud-Slap", "Poison Fang", "Snatch", "Super Fang", "Spite", "Swift (N)", "Thunder Fang (N)", "Trick", "U-Turn"]
+      "tutor": [
+        "Assurance",
+        "Covet",
+        {"name":"Fire Fang","natural":true},
+        "Fury Cutter",
+        "Hyper Fang",
+        "Iron Tail",
+        "Memento",
+        "Mud-Slap",
+        "Poison Fang",
+        "Snatch",
+        "Super Fang",
+        "Spite",
+        {"name":"Swift","natural":true},
+        {"name":"Thunder Fang","natural":true},
+        "Trick",
+        "U-Turn"
+      ]
     }
   },
   {
@@ -2225,7 +2340,37 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"97","name":"Dark Pulse"}
       ],
       "egg": [],
-      "tutor": ["Air Cutter", "Curse", "Defog", "Dream Eater(N)", "Feather Dance", "Feint Attack", "Haze", "Heat Wave", "Hex", "Hypnosis", "Icy Wind", "Magic Coat", "Mud-Slap", "Ominous Wind", "Pain Split", "Perish Song", "Pluck", "Recycle", "Role Play", "Shadow Sneak", "Silver Wind", "Sky Attack(N)", "Sky Attack", "Steel Wing", "Tailwind", "Twister", "Uproar", "Whirlwind", "Will-O-Wisp", "Zen Headbutt"]
+      "tutor": [
+        "Air Cutter",
+        "Curse",
+        "Defog",
+        {"name":"Dream Eater","natural":true},
+        "Feather Dance",
+        "Feint Attack",
+        "Haze",
+        "Heat Wave",
+        "Hex",
+        "Hypnosis",
+        "Icy Wind",
+        "Magic Coat",
+        "Mud-Slap",
+        "Ominous Wind",
+        "Pain Split",
+        "Perish Song",
+        "Pluck",
+        "Recycle",
+        "Role Play",
+        "Shadow Sneak",
+        "Silver Wind",
+        {"name":"Sky Attack","natural":true},
+        "Steel Wing",
+        "Tailwind",
+        "Twister",
+        "Uproar",
+        "Whirlwind",
+        "Will-O-Wisp",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -2452,7 +2597,31 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"99","name":"Dazzling Gleam"}
       ],
       "egg": ["Ally Switch", "Curse", "Destiny Bond", "Disable", "Encore", "Grudge", "Mean Look", "Memento", "Misty Terrain", "Shadow Sneak", "Skill Swap", "Synchronoise", "Will-O-Wisp"],
-      "tutor": ["Dark Pulse", "Defense Curl", "Foul Play", "Heal Bell", "Hyper Voice", "Icy Wind", "Ominous Wind", "Lucky Chant (N)", "Magic Coat", "Moonblast (N)", "Mystical Fire (N)", "Pain Split", "Power Gem (N)", "Psywave", "Shock Wave", "Skill Swap", "Snatch", "Spite(N)", "Swift", "Telekinesis", "Trick", "Uproar", "Wonder Room"]
+      "tutor": [
+        "Dark Pulse",
+        "Defense Curl",
+        "Foul Play",
+        "Heal Bell",
+        "Hyper Voice",
+        "Icy Wind",
+        "Ominous Wind",
+        {"name":"Lucky Chant","natural":true},
+        "Magic Coat",
+        {"name":"Moonblast","natural":true},
+        {"name":"Mystical Fire","natural":true},
+        "Pain Split",
+        {"name":"Power Gem","natural":true},
+        "Psywave",
+        "Shock Wave",
+        "Skill Swap",
+        "Snatch",
+        {"name":"Spite","natural":true},
+        "Swift",
+        "Telekinesis",
+        "Trick",
+        "Uproar",
+        "Wonder Room"
+      ]
     }
   },
   {
@@ -2530,7 +2699,24 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"97","name":"Dark Pulse"}
       ],
       "egg": ["After You", "Charm", "Flatter", "Sweet Kiss", "Teeter Dance", "Venom Drench", "Yawn"],
-      "tutor": ["Bullet Seed", "Endeavor", "Growth", "Helping Hand", "Leaf Tornado (N)", "Metronome", "Mimic", "Pluck", "Recycle (N)", "Simple Beam", "Sleep Talk", "Snore", "Sucker Punch", "Synthesis", "Trick", "Uproar"]
+      "tutor": [
+        "Bullet Seed",
+        "Endeavor",
+        "Growth",
+        "Helping Hand",
+        {"name":"Leaf Tornado","natural":true},
+        "Metronome",
+        "Mimic",
+        "Pluck",
+        {"name":"Recycle","natural":true},
+        "Simple Beam",
+        "Sleep Talk",
+        "Snore",
+        "Sucker Punch",
+        "Synthesis",
+        "Trick",
+        "Uproar"
+      ]
     }
   },
   {
@@ -2611,7 +2797,26 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"97","name":"Dark Pulse"}
       ],
       "egg": [],
-      "tutor": ["Bullet Seed", "Endeavor", "Growth", "Gunk Shot", "Helping Hand", "Leaf Tornado (N)", "Metronome", "Mimic", "Pluck", "Poison Gas (N)", "Recycle (N)", "Simple Beam", "Sleep Talk", "Snore", "Sucker Punch", "Synthesis", "Trick", "Uproar"]
+      "tutor": [
+        "Bullet Seed",
+        "Endeavor",
+        "Growth",
+        "Gunk Shot",
+        "Helping Hand",
+        {"name":"Leaf Tornado","natural":true},
+        "Metronome",
+        "Mimic",
+        "Pluck",
+        {"name":"Poison Gas","natural":true},
+        {"name":"Recycle","natural":true},
+        "Simple Beam",
+        "Sleep Talk",
+        "Snore",
+        "Sucker Punch",
+        "Synthesis",
+        "Trick",
+        "Uproar"
+      ]
     }
   },
   {
@@ -2872,7 +3077,24 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"97","name":"Dark Pulse"}
       ],
       "egg": [],
-      "tutor": ["Bullet Punch", "Defense Curl", "Double-edge", "Gravity", "Iron Head", "Magic Coat", "Magnet Rise", "Meteor Mash", "Pain Split", "Recycle", "Signal Beam", "Shockwave", "Substitute (N)", "Swift", "Trick", "Wonder Room"]
+      "tutor": [
+        "Bullet Punch",
+        "Defense Curl",
+        "Double-edge",
+        "Gravity",
+        "Iron Head",
+        "Magic Coat",
+        "Magnet Rise",
+        "Meteor Mash",
+        "Pain Split",
+        "Recycle",
+        "Signal Beam",
+        "Shockwave",
+        {"name":"Substitute","natural":true},
+        "Swift",
+        "Trick",
+        "Wonder Room"
+      ]
     }
   },
   {
@@ -3199,7 +3421,25 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"97","name":"Dark Pulse"}
       ],
       "egg": ["Ancient Power", "Brine", "Bullet Punch", "Destiny Bond", "Double-Edge", "Hydro Pump", "Swift", "Thrash"],
-      "tutor": ["Ancient Power", "Aqua Jet (N) Bounce", "Dark Pulse", "Dive", "Fury Cutter", "Icy Wind", "Mud-Slap", "Sleep Talk", "Snore", "Spite", "Super Fang", "Swift", "Uproar", "Water Pulse", "Whirlpool", "Zen Headbutt"]
+      "tutor": [
+        "Ancient Power",
+        {"name":"Aqua Jet","natural":true},
+        "Bounce",
+        "Dark Pulse",
+        "Dive",
+        "Fury Cutter",
+        "Icy Wind",
+        "Mud-Slap",
+        "Sleep Talk",
+        "Snore",
+        "Spite",
+        "Super Fang",
+        "Swift",
+        "Uproar",
+        "Water Pulse",
+        "Whirlpool",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -3284,7 +3524,30 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"97","name":"Dark Pulse"}
       ],
       "egg": [],
-      "tutor": ["Ancient Power", "Avalanche", "Bounce", "Brine", "Chilling Water", "Dark Pulse", "Dive", "Double-Edge", "Feint", "Fury Cutter", "Icy Wind", "Mud-Slap", "Night Slash (N)", "Sleep Talk", "Snore", "Spite", "Super Fang", "Swift", "Uproar", "Water Pulse", "Whirlpool", "Zen Headbutt"]
+      "tutor": [
+        "Ancient Power",
+        "Avalanche",
+        "Bounce",
+        "Brine",
+        "Chilling Water",
+        "Dark Pulse",
+        "Dive",
+        "Double-Edge",
+        "Feint",
+        "Fury Cutter",
+        "Icy Wind",
+        "Mud-Slap",
+        {"name":"Night Slash","natural":true},
+        "Sleep Talk",
+        "Snore",
+        "Spite",
+        "Super Fang",
+        "Swift",
+        "Uproar",
+        "Water Pulse",
+        "Whirlpool",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -3370,7 +3633,24 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": ["Defense Curl", "Last Resort", "Rollout", "Spikes"],
-      "tutor": ["Body Press", "Body Slam", "Bullet Seed", "Defense Curl", "Endure", "Hammer Arm", "Hyper Voice", "Iron Tail (N)", "Last Resort", "Rollout", "Seed Bomb", "Snore", "Stomping Tantrum", "Super Fang (N)", "Superpower", "Uproar"]
+      "tutor": [
+        "Body Press",
+        "Body Slam",
+        "Bullet Seed",
+        "Defense Curl",
+        "Endure",
+        "Hammer Arm",
+        "Hyper Voice",
+        {"name":"Iron Tail","natural":true},
+        "Last Resort",
+        "Rollout",
+        "Seed Bomb",
+        "Snore",
+        "Stomping Tantrum",
+        {"name":"Super Fang","natural":true},
+        "Superpower",
+        "Uproar"
+      ]
     }
   },
   {
@@ -3460,7 +3740,23 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Body Press", "Body Slam", "Bullet Seed", "Defense Curl", "Endure", "Hyper Voice", "Iron Tail (N)", "Last Resort", "Rollout", "Seed Bomb", "Snore", "Stomping Tantrum", "Super Fang (N)", "Superpower", "Uproar"]
+      "tutor": [
+        "Body Press",
+        "Body Slam",
+        "Bullet Seed",
+        "Defense Curl",
+        "Endure",
+        "Hyper Voice",
+        {"name":"Iron Tail","natural":true},
+        "Last Resort",
+        "Rollout",
+        "Seed Bomb",
+        "Snore",
+        "Stomping Tantrum",
+        {"name":"Super Fang","natural":true},
+        "Superpower",
+        "Uproar"
+      ]
     }
   },
   {
@@ -4340,7 +4636,8 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"27","name":"Return"},
         {"no":"32","name":"Double Team"},
         {"no":"33","name":"Reflect"},
-        {"no":"37","name":"Sandstorm 41 Torment"},
+        {"no":"37","name":"Sandstorm"},
+        {"no":"41","name":"Torment"},
         {"no":"42","name":"Facade"},
         {"no":"44","name":"Rest"},
         {"no":"45","name":"Attract"},
@@ -4364,7 +4661,31 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Ally Switch", "Body Slam", "Counter", "Double-Edge", "Foul Play", "Gravity", "Kinesis(N)", "Knock Off", "Magic Coat", "Magic Room", "Recycle", "Role Play", "Mirror Coat", "Shock Wave", "Signal Beam", "Skill Swap", "Sleep Talk", "Snatch", "Snore", "Telekinesis", "Trick", "Wonder Room", "Zen Headbutt"]
+      "tutor": [
+        "Ally Switch",
+        "Body Slam",
+        "Counter",
+        "Double-Edge",
+        "Foul Play",
+        "Gravity",
+        {"name":"Kinesis","natural":true},
+        "Knock Off",
+        "Magic Coat",
+        "Magic Room",
+        "Recycle",
+        "Role Play",
+        "Mirror Coat",
+        "Shock Wave",
+        "Signal Beam",
+        "Skill Swap",
+        "Sleep Talk",
+        "Snatch",
+        "Snore",
+        "Telekinesis",
+        "Trick",
+        "Wonder Room",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -4426,7 +4747,8 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"27","name":"Return"},
         {"no":"32","name":"Double Team"},
         {"no":"33","name":"Reflect"},
-        {"no":"37","name":"Sandstorm 41 Torment"},
+        {"no":"37","name":"Sandstorm"},
+        {"no":"41","name":"Torment"},
         {"no":"42","name":"Facade"},
         {"no":"44","name":"Rest"},
         {"no":"45","name":"Attract"},
@@ -4450,7 +4772,31 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Ally Switch", "Body Slam", "Counter", "Double-Edge", "Foul Play", "Gravity", "Kinesis(N)", "Knock Off", "Magic Coat", "Magic Room", "Recycle", "Role Play", "Mirror Coat", "Shock Wave", "Signal Beam", "Skill Swap", "Sleep Talk", "Snatch", "Snore", "Telekinesis", "Trick", "Wonder Room", "Zen Headbutt"]
+      "tutor": [
+        "Ally Switch",
+        "Body Slam",
+        "Counter",
+        "Double-Edge",
+        "Foul Play",
+        "Gravity",
+        {"name":"Kinesis","natural":true},
+        "Knock Off",
+        "Magic Coat",
+        "Magic Room",
+        "Recycle",
+        "Role Play",
+        "Mirror Coat",
+        "Shock Wave",
+        "Signal Beam",
+        "Skill Swap",
+        "Sleep Talk",
+        "Snatch",
+        "Snore",
+        "Telekinesis",
+        "Trick",
+        "Wonder Room",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -5053,7 +5399,7 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Counter", "Dragon Pulse", "Fire Punch", "Ice Punch", "Ice Shard", "Iron Tail", "Mega Drain", "Momento", "Stored Power", "Thunder Punch", "New Abilities:", "Forbidden Technique", "At-Will - Free Action", "Trigger: The user uses any Psychic Type Move.", "Effect: The move is changed to be Dark-Type", "Common Technique", "At-Will - Free Action", "Trigger: The user uses any Psychic Type Move", "Effect: The move is changed to be Electric-Type.", "Cursed Knowledge", "Scene x2 - Free Action", "Effect: The user can transfer and lose all of its positive Combat Stages and give them to any Pokemon on the field. When done though the Pokemon given the Combat Stages will gain the Cursed Knowlege Status Condition.", "Copy//Paste", "Static", "Effect: Connection - Substitute. Scene: When the user enters battle", "the user can use Substitute as a Swift Action Trigger. The first time Substitute is used by the user per scene", "it does not expend its frequency. Additionally", "when the user uses Substitute", "it uses the opponent's stats rather than its own.", "Stronkheed", "Static", "Effect: Grants +2 DB to the following moves. Drill Run", "Fiery Crash", "Headbutt", "Head Charge", "Headlong Rush", "Iron Head", "Sacred Hammer", "Skull Bash", "Slam", "Take Down", "Tackle", "Thrash", "Zen Headbutt", "Diggy Diggy Hole", "Daily: 1x per day", "Effect: When dowsing you may roll twice and pick the preferred roll. When digging for fossils you may pick one fossil you find while digging. Both takes from your daily allowed activities.", "Orchestra", "Scene - Swift Action", "Effect: Connection - Echoed Voice. The User may treat the previous round as having used Echoed Voice that round.", "Midnight's Grasp", "Scene – Free Action", "Effect: The Weather changes to be New Moon for 5 rounds", "Cheshire's Smile", "Scene - Free Action; Connection \"Phantom Force\". Once per Scene when you use phantom force", "the smile of this maddening creature creates a burst 1 effect lowering SAtk and Atk by 1 CS", "Heated Hurl", "Frequency: Scene - Free Action", "Keywords: Connection", "Connection - Fling. Once per scene", "the user can use the move Fling with no item in hand", "or choose to not Fling their held item. The user instead flings a ball of flaming peat from the ground", "using the \"rare item\" DB of 10 to calculate damage. On a roll of 19+", "this attack Burns the target.", "Bonus: When used by this Pokemon", "the move Fling can be used as either a dark-type", "fire-type", "or ground-type Physical attack", "and the lowest DB is 6 no matter the item thrown.", "New Moves:", "Move: Pestilence", "Type: Poison", "Frequency: Daily", "AC: 2", "Damage Base 15: 4d10+20", "Class: Physical", "Range: Burst 5", "Effect: The user's HP is set to -50% of their full HP. This HP loss cannot be prevented or reduced in any way. The user's loyalty toward its trainer may be lowered. Pestilence Poisons all legal targets. The terrain becomes Poisoned.", "Contest Type: Beauty", "Contest Effect: Big Show", "Move: Evocation", "Type: Psychic", "Frequency: EOT", "AC: 2", "Damage Base 4: 1d8+6", "Class: Special", "Range: Burst 1", "Friendly", "Effect: If evocation is currently Electric Type", "through the use of Type Sync or Common Technique", "it automatically hits.", "Contest Type: Smart", "Contest Effect: Exhausting Act", "Move: Dark Magic", "Type: Psychic", "Frequency: EOT", "AC: 2", "Damage Base 8: 2d8+10", "Class: Physical", "Range: 1", "Melee", "Effect: If Dark Magic is currently Dark Type", "through the use of Move Sync or Forbidden Technique", "it automatically hits. Dark Magic may be affected by Iron Fist.", "Contest Type: Cool", "Contest Effect: Exhausting Act", "Move: Crescendo", "Type: Electric", "Frequency: EOT", "AC: 3", "Damage Base 6:", "Class: Special", "Range: Ranged 5", "1 Target", "Effect: Infatuates on 18+", "ignoring immunity to infatuation.", "Contest Type: Cute", "Contest Effect: Exhausting Act", "Move: JaJanken", "Type: ???", "Frequency: Scene x2", "AC: 4", "Damage Base 12: 3d12+10", "Class: ???", "Range: ???", "Effect: Roll a 1d6. On rolls of 1-2 it is a Physical Melee", "1 Target Rock Move (Rock)", "on 3-4 it is a Special Line 2 Grass Move (Paper)", "and on 5-6 it is a Physical Melee", "1 Target Steel Move (Scissors).", "Move: Splitter Splat", "Type: Poison", "Frequency: At-Will", "AC: 2", "Damage Base 8: 2d8+10 / 19", "Class: Special", "Range: 4", "1 Target", "Interrupt", "Trigger", "Effect: If an adjacent foe targets the user with a Damaging Attack", "Splitter Splat may be used as an Interrupt Move against the triggering foe.", "Contest Type: Smart", "Contest Effect: Desperation", "Move: Sacred Hammer", "Type: Steel", "Frequency: EOT", "AC: 4", "Damage Base: 10/ 3d8+10", "Class: Physical", "Range: Melee", "1 Target", "Dash", "Recoil (1/3rd)", "Effect: Flinches target on 19+", "Contest Type: Tough", "Contest Effect: Big Show", "Move: Electric Slide", "Type: Electric", "Frequency: EOT", "AC: 2", "Damage Base 8: 2d8+10", "Class: Physical", "Range: Melee", "1 Target", "Effect: If Electric Slide successfully hits a foe", "it raises the user's Attack by 1 Combat Stage on Even-Numbered Rolls.", "Contest Type: Cool", "Contest Effect: Attention Grabber", "Move: Ice Over", "Type: Ice", "Frequency: Scene x2", "AC: 6", "Class: Status Range: 6", "1", "Target Effect: Roll a d4. The target is Frozen for that many rounds. This does not negate normal thaw checks", "Contest Type: Cool", "Contest Effect: Exhausting Act", "Move: Tompfoolery", "Type: Normal", "Frequency: Daily", "AC: 2", "Damage Base 18: 6d12+25", "Class: Special", "Range: 6", "Ranged Blast 3", "Smite", "Spirit Surge", "Target Effect: The user's Hit Points are reduced by 50% of their Max Hit Point Value. This hit point loss cannot be prevented or reduced in any way. Tompfoolery's type is changed to match the secondary type of the user. If the user is not a fully evolved species of the Tomp line", "Tompfoolery's type is Normal. On 18+", "all legal targets suffer from a status condition based on the user. If VM'd does nothing.", "Tomphoon - Paralyzed - Water Type", "Brimstomp - Poisoned - Fire Type", "Wintompfros - Frozen - Ground Type", "Stompdium - Burned - Dark Type", "Artompca - Sleeping - Ice Type", "All others - Flinched - Normal Type", "Contest Type: Smart", "Contest Effect: Big Show", "Move: Shadow Magic", "Type: Dark", "Frequency: EoT", "AC: 3", "Damage Base 10: 3d8+10", "Class: Special", "Range: 6", "1 Target", "Effect: Shadow Magic may deal Psychic damage instead of Dark type if the user wishes", "Move: Wonderland", "Type: Ghost", "Frequency: Daily x2", "Class: Status", "Range: Burst 10", "Effect: For 3 rounds abilities and their effects are negated.", "Move: Toxic Wring", "Type: Poison", "Frequency: Static", "AC: -", "DB: -", "Class: Status", "Range: -", "Effect: The user's Grapple attempts Poison the target on a 15+. If the target was already poisoned then the target is Trapped and Suppressed until the end of the user's next turn (doesn't need to roll 15+ for this effect).", "Contest type: Tough", "Contest effect: Safe Option", "Move: Wyvernslice", "Type: Dragon", "Frequency: EOT", "AC: 5", "DB: 9", "Class: Physical", "Range: Close Blast 2", "Contest Type: Cool", "Contest Effect: Exhausting Act", "Effect: Wyvernslice can be used as a steel type move if the user wishes. This move may be boosted by sharpness.", "Misc.", "New Capability - Moonlight", "Glow from this Pokemon counts as moonlight for moves and abilities", "New Status Condition - Cursed Knowledge", "For every positive Combat Stage you have", "take one tick of damage at the start of your turn. This effect can not be cured unless you remove the combat stages from the Pokemon.", "Aura Shared - Capability - If the trainer has an Elemental Connection", "Elementalist Class", "or a Type Ace class the secondary typing of the Pokemon is changed to that typing. The Pokemon gains the following moves at the levels stated based on the secondary Typing. If multiple", "the trainer may choose the type based on their classes.", "34 - Leech Life", "Feint Attack", "Dual Chop", "Spark", "Play Rough", "Karate Chop", "Blaze Kick", "Dual Wingbeat", "Shadow Sneak", "Seed Bomb", "Stomping Tantrum", "Icicle Spear", "Facade", "Poison Tail", "Zen Headbutt", "Rock Blast", "Meteor Mash", "Aqua Jet", "46 - Struggle Bug", "Dark Pulse", "Dragon Breath", "Shock Wave", "Draining Kiss", "Aura Sphere", "Lava Plume", "Air Cutter", "Ominous Wind", "Magical Leaf", "Mud Bomb", "Powder Snow", "Tri-Attack", "Sludge", "Extrasensory", "Ancient Power", "Mirror Shot", "Bubblebeam", "Note: If none of the above is applicable", "roll randomly for the type using the Hidden Power effect listing to determine type. This also includes if the secondary typing would be Psychic unless rolled or chosen by the trainer then it remains pure Psychic.", "Vocal - Capability - This Pokemon can mimic and learn to speak using its trainer's voice. The Pokemon must have Expert Gen Ed (5d6) to do so.", "Psychic Bond - Ability", "Trigger: The user faints a foe.", "Effect: The user enters its Monarch form", "while the user is in Monarch Forme", "they gain one ability from their trainer ability list. Once the ability is chosen", "it may not be changed even when they leave the form. If the trainer does not have an ability", "change Adaptability to be \"The user moves gain +2 DB and +5 damage to all STAB.\""]
+      "tutor": ["Counter", "Dragon Pulse", "Fire Punch", "Ice Punch", "Ice Shard", "Iron Tail", "Mega Drain", "Momento", "Stored Power", "Thunder Punch"]
     }
   }
 ]);

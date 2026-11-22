@@ -76,7 +76,26 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"99","name":"Dazzling Gleam"}
       ],
       "egg": [],
-      "tutor": ["After You", "Aura Sphere", "Block", "Drain Punch", "Draining Kiss", "Fire Punch (N)", "Focus Punch", "Ice Punch (N)", "Knock Off", "Laser Focus", "Low Kick", "Mach Punch", "Snatch", "Snore", "Sweet Kiss", "Throat Chop", "Thunder Punch (N)", "Uproar"]
+      "tutor": [
+        "After You",
+        "Aura Sphere",
+        "Block",
+        "Drain Punch",
+        "Draining Kiss",
+        {"name":"Fire Punch","natural":true},
+        "Focus Punch",
+        {"name":"Ice Punch","natural":true},
+        "Knock Off",
+        "Laser Focus",
+        "Low Kick",
+        "Mach Punch",
+        "Snatch",
+        "Snore",
+        "Sweet Kiss",
+        "Throat Chop",
+        {"name":"Thunder Punch","natural":true},
+        "Uproar"
+      ]
     }
   },
   {
@@ -145,7 +164,8 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"45","name":"Attract"},
         {"no":"48","name":"Round"},
         {"no":"53","name":"Energy Ball"},
-        {"no":"61","name":"Will-O-Wisp 68 Giga Impact"},
+        {"no":"61","name":"Will-O-Wisp"},
+        {"no":"68","name":"Giga Impact"},
         {"no":"73","name":"Thunder Wave"},
         {"no":"77","name":"Psych Up"},
         {"no":"80","name":"Rock Slide"},
@@ -156,7 +176,22 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"99","name":"Dazzling Gleam"}
       ],
       "egg": [],
-      "tutor": ["After You", "Covet", "Endure", "Foul Play", "Helping Hand", "Iron Defense", "Last Resort", "Magic Coat", "Magic Room", "Magnet Rise", "Recycle", "Snore", "Sunny Day (N)", "Wonder Room"]
+      "tutor": [
+        "After You",
+        "Covet",
+        "Endure",
+        "Foul Play",
+        "Helping Hand",
+        "Iron Defense",
+        "Last Resort",
+        "Magic Coat",
+        "Magic Room",
+        "Magnet Rise",
+        "Recycle",
+        "Snore",
+        {"name":"Sunny Day","natural":true},
+        "Wonder Room"
+      ]
     }
   },
   {
@@ -229,7 +264,8 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"50","name":"Overheat"},
         {"no":"53","name":"Energy Ball"},
         {"no":"59","name":"Incinerate"},
-        {"no":"61","name":"Will-O-Wisp 68 Giga Impact"},
+        {"no":"61","name":"Will-O-Wisp"},
+        {"no":"68","name":"Giga Impact"},
         {"no":"73","name":"Thunder Wave"},
         {"no":"77","name":"Psych Up"},
         {"no":"80","name":"Rock Slide"},
@@ -240,7 +276,30 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"99","name":"Dazzling Gleam"}
       ],
       "egg": [],
-      "tutor": ["After You", "Defense Curl(N)", "Fire Spin", "Electric Terrain", "Future Sight", "Gravity", "Heal Bell", "Helping Hand", "Hypnosis(N)", "Lucky Chant", "Magic Coat", "Pain Split", "Psybeam", "Psycho Shift", "Skill Swap", "Sleep Talk", "Shock Wave", "Snore", "Telekinesis", "Trick", "Wonder Room", "Zen Headbutt"]
+      "tutor": [
+        "After You",
+        {"name":"Defense Curl","natural":true},
+        "Fire Spin",
+        "Electric Terrain",
+        "Future Sight",
+        "Gravity",
+        "Heal Bell",
+        "Helping Hand",
+        {"name":"Hypnosis","natural":true},
+        "Lucky Chant",
+        "Magic Coat",
+        "Pain Split",
+        "Psybeam",
+        "Psycho Shift",
+        "Skill Swap",
+        "Sleep Talk",
+        "Shock Wave",
+        "Snore",
+        "Telekinesis",
+        "Trick",
+        "Wonder Room",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -327,7 +386,32 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"97","name":"Dark Pulse"}
       ],
       "egg": [],
-      "tutor": ["Body Slam", "Counter", "Dark Pulse", "Double-Edge", "Earth Power", "Fire Fang", "Foul Play", "Mud Slap", "Hyper Voice", "Iron Tail", "Magic Coat", "Mud-Slap", "Nasty Plot (N)", "Poison Fang (N)", "Role Play", "Sleep Talk", "Snatch", "Snore", "Spite", "Sucker Punch", "Super Fang", "Swift", "Thunder Fang (N)", "Uproar"]
+      "tutor": [
+        "Body Slam",
+        "Counter",
+        "Dark Pulse",
+        "Double-Edge",
+        "Earth Power",
+        "Fire Fang",
+        "Foul Play",
+        "Mud Slap",
+        "Hyper Voice",
+        "Iron Tail",
+        "Magic Coat",
+        "Mud-Slap",
+        {"name":"Nasty Plot","natural":true},
+        {"name":"Poison Fang","natural":true},
+        "Role Play",
+        "Sleep Talk",
+        "Snatch",
+        "Snore",
+        "Spite",
+        "Sucker Punch",
+        "Super Fang",
+        "Swift",
+        {"name":"Thunder Fang","natural":true},
+        "Uproar"
+      ]
     }
   },
   {
@@ -441,7 +525,46 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"99","name":"Dazzling Gleam"}
       ],
       "egg": [],
-      "tutor": ["After You", "Ally Switch", "Aqua Tail", "Body Slam", "Bounce", "Bug Bite", "Copycat", "Defense Curl", "Disarming Voice", "Earth Power", "Endure", "Foul Play", "Fury Cutter", "Genesis Strike (N)", "Heal Bell", "Helping Hand (N)", "Hydro Pump", "Iron Tail", "Last Resort", "Liquidation", "Me First", "Metronome", "Outrage", "Rock Climb", "Role Play", "Rollout", "Pounce", "Shock Wave", "Sleep Talk", "Snore", "Superpower", "Swift", "Trailblaze", "Twister", "Vacuum Wave", "Water Pulse", "Work Up", "Zen Headbutt"]
+      "tutor": [
+        "After You",
+        "Ally Switch",
+        "Aqua Tail",
+        "Body Slam",
+        "Bounce",
+        "Bug Bite",
+        "Copycat",
+        "Defense Curl",
+        "Disarming Voice",
+        "Earth Power",
+        "Endure",
+        "Foul Play",
+        "Fury Cutter",
+        {"name":"Genesis Strike","natural":true},
+        "Heal Bell",
+        {"name":"Helping Hand","natural":true},
+        "Hydro Pump",
+        "Iron Tail",
+        "Last Resort",
+        "Liquidation",
+        "Me First",
+        "Metronome",
+        "Outrage",
+        "Rock Climb",
+        "Role Play",
+        "Rollout",
+        "Pounce",
+        "Shock Wave",
+        "Sleep Talk",
+        "Snore",
+        "Superpower",
+        "Swift",
+        "Trailblaze",
+        "Twister",
+        "Vacuum Wave",
+        "Water Pulse",
+        "Work Up",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -516,7 +639,25 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"90","name":"Substitute"}
       ],
       "egg": [],
-      "tutor": ["Air Cutter", "Body Slam", "Double-Edge", "Endeavor", "Knock Off", "Mud-Slap", "Pluck (N)", "Roost", "Sky Attack", "Sleep Talk", "Snore", "Steel Wing", "Swift", "Uproar", "Tri Attack (N)", "Work Up", "Vicious Talon"]
+      "tutor": [
+        "Air Cutter",
+        "Body Slam",
+        "Double-Edge",
+        "Endeavor",
+        "Knock Off",
+        "Mud-Slap",
+        {"name":"Pluck","natural":true},
+        "Roost",
+        "Sky Attack",
+        "Sleep Talk",
+        "Snore",
+        "Steel Wing",
+        "Swift",
+        "Uproar",
+        {"name":"Tri Attack","natural":true},
+        "Work Up",
+        "Vicious Talon"
+      ]
     }
   },
   {
@@ -686,7 +827,33 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Aqua Tail", "Autotomize (N)", "Belly Drum", "Body Press", "Drain Punch", "Dual Chop", "Endeavor", "Fire Punch", "Focus Punch", "Hyper Voice", "Ice Punch", "Iron Defense", "Iron Head", "Iron Tail", "Laser Focus", "Outrage", "Shock Wave", "Snore", "Stealth Rock", "Stomping Tantrum", "Superpower", "Thunder Punch", "Uproar", "Quick Guard (N)", "Wide Guard (N)"]
+      "tutor": [
+        "Aqua Tail",
+        {"name":"Autotomize","natural":true},
+        "Belly Drum",
+        "Body Press",
+        "Drain Punch",
+        "Dual Chop",
+        "Endeavor",
+        "Fire Punch",
+        "Focus Punch",
+        "Hyper Voice",
+        "Ice Punch",
+        "Iron Defense",
+        "Iron Head",
+        "Iron Tail",
+        "Laser Focus",
+        "Outrage",
+        "Shock Wave",
+        "Snore",
+        "Stealth Rock",
+        "Stomping Tantrum",
+        "Superpower",
+        "Thunder Punch",
+        "Uproar",
+        {"name":"Quick Guard","natural":true},
+        {"name":"Wide Guard","natural":true}
+      ]
     }
   },
   {
@@ -778,7 +945,24 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Ally Switch", "Aqua Ring", "Body Press", "Body Slam", "Double-Edge", "Draco Meteor", "Dragon Pulse (N)", "Endure", "Helping Hand", "Iron Defense", "Iron Head", "Last Resort", "Outrage", "Snore", "Sucker Punch", "Swift"]
+      "tutor": [
+        "Ally Switch",
+        "Aqua Ring",
+        "Body Press",
+        "Body Slam",
+        "Double-Edge",
+        "Draco Meteor",
+        {"name":"Dragon Pulse","natural":true},
+        "Endure",
+        "Helping Hand",
+        "Iron Defense",
+        "Iron Head",
+        "Last Resort",
+        "Outrage",
+        "Snore",
+        "Sucker Punch",
+        "Swift"
+      ]
     }
   },
   {
@@ -875,7 +1059,35 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"92","name":"Trick Room"}
       ],
       "egg": [],
-      "tutor": ["Ancient Power", "Body Slam", "Defense Curl", "Double-Edge", "Earth Power", "Future Sight (N)", "Gravity", "Gyro Ball (N) Heat Wave", "Helping Hand", "Iron Defense", "Iron Head", "Magic Coat", "Pain Split", "Recycle", "Role Play", "Rock Throw (N)", "Rollout", "Seismic Toss", "Signal Beam", "Skill Swap", "Snore", "Stealth Rock", "Swift", "Telekinesis", "Wonder Room (N)", "Zen Headbutt (N)"]
+      "tutor": [
+        "Ancient Power",
+        "Body Slam",
+        "Defense Curl",
+        "Double-Edge",
+        "Earth Power",
+        {"name":"Future Sight","natural":true},
+        "Gravity",
+        {"name":"Gyro Ball","natural":true},
+        "Heat Wave",
+        "Helping Hand",
+        "Iron Defense",
+        "Iron Head",
+        "Magic Coat",
+        "Pain Split",
+        "Recycle",
+        "Role Play",
+        {"name":"Rock Throw","natural":true},
+        "Rollout",
+        "Seismic Toss",
+        "Signal Beam",
+        "Skill Swap",
+        "Snore",
+        "Stealth Rock",
+        "Swift",
+        "Telekinesis",
+        {"name":"Wonder Room","natural":true},
+        {"name":"Zen Headbutt","natural":true}
+      ]
     }
   },
   {
@@ -968,7 +1180,36 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"98","name":"Power-Up Punch"}
       ],
       "egg": [],
-      "tutor": ["Aqua Tail", "Body Slam", "Breaking Swipe (N)", "Covet", "Dynamic Punch", "Endure", "Fire Punch", "Fury Cutter", "Helping Hand", "Hyper Voice", "Ice Punch", "Iron Tail", "Knock Off", "Last Resort", "Psych Up", "Rollout", "Shock Wave", "Sleep Talk", "Snore", "Sucker Punch", "Super Fang", "Sunny Day (N)", "Swift", "Thunder Punch", "Trick", "Water Pulse", "Uproar", "Work Up"]
+      "tutor": [
+        "Aqua Tail",
+        "Body Slam",
+        {"name":"Breaking Swipe","natural":true},
+        "Covet",
+        "Dynamic Punch",
+        "Endure",
+        "Fire Punch",
+        "Fury Cutter",
+        "Helping Hand",
+        "Hyper Voice",
+        "Ice Punch",
+        "Iron Tail",
+        "Knock Off",
+        "Last Resort",
+        "Psych Up",
+        "Rollout",
+        "Shock Wave",
+        "Sleep Talk",
+        "Snore",
+        "Sucker Punch",
+        "Super Fang",
+        {"name":"Sunny Day","natural":true},
+        "Swift",
+        "Thunder Punch",
+        "Trick",
+        "Water Pulse",
+        "Uproar",
+        "Work Up"
+      ]
     }
   },
   {
@@ -1161,7 +1402,33 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Block", "Bone Club (N)", "Bone Rush", "Bonemerang", "Confuse Ray", "Curse", "Destiny Bond", "Fire Fang", "Fire Punch", "Focus Punch", "Gastro Acid", "Giga Drain", "Grudge", "Gunk Shot", "Ice Fang", "Ice Punch", "Knock Off", "Night Shade", "Pain Split", "Recycle", "Shock Wave", "Snore", "Spite", "Thunder Fang", "Thunder Punch"]
+      "tutor": [
+        "Block",
+        {"name":"Bone Club","natural":true},
+        "Bone Rush",
+        "Bonemerang",
+        "Confuse Ray",
+        "Curse",
+        "Destiny Bond",
+        "Fire Fang",
+        "Fire Punch",
+        "Focus Punch",
+        "Gastro Acid",
+        "Giga Drain",
+        "Grudge",
+        "Gunk Shot",
+        "Ice Fang",
+        "Ice Punch",
+        "Knock Off",
+        "Night Shade",
+        "Pain Split",
+        "Recycle",
+        "Shock Wave",
+        "Snore",
+        "Spite",
+        "Thunder Fang",
+        "Thunder Punch"
+      ]
     }
   },
   {
@@ -1353,7 +1620,36 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"99","name":"Dazzling Gleam"}
       ],
       "egg": [],
-      "tutor": ["Body Slam", "Bounce", "Counter", "Dark Pulse", "Detect (N)", "Foul Play", "Fury Cutter", "Hurricane", "Icy Wind", "Iron Tail", "Knock Off", "Magic Coat", "Me First (N)", "Mud-Slap", "Perish Song (N)", "Razor Wind (N)", "Role Play", "Shock Wave", "Sleep Talk", "Snatch", "Snore", "Spite", "Sucker Punch", "Superpower", "Swift", "Taunt (N)", "Water Pulse", "Zen Headbutt"]
+      "tutor": [
+        "Body Slam",
+        "Bounce",
+        "Counter",
+        "Dark Pulse",
+        {"name":"Detect","natural":true},
+        "Foul Play",
+        "Fury Cutter",
+        "Hurricane",
+        "Icy Wind",
+        "Iron Tail",
+        "Knock Off",
+        "Magic Coat",
+        {"name":"Me First","natural":true},
+        "Mud-Slap",
+        {"name":"Perish Song","natural":true},
+        {"name":"Razor Wind","natural":true},
+        "Role Play",
+        "Shock Wave",
+        "Sleep Talk",
+        "Snatch",
+        "Snore",
+        "Spite",
+        "Sucker Punch",
+        "Superpower",
+        "Swift",
+        {"name":"Taunt","natural":true},
+        "Water Pulse",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -1457,7 +1753,35 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"90","name":"Substitute"}
       ],
       "egg": [],
-      "tutor": ["Body Slam", "Double-Edge", "Draco Meteor", "Dragon Dance (N)", "Dragon Pulse (N)", "Fury Cutter", "Heal Pulse (N)", "Helping Hand", "Icy Wind", "Last Resort", "Magic Coat", "Memento (N)", "Mud-Slap", "Outrage", "Power Split (N)", "Roost", "Role Play", "Sleep Talk", "Snore", "Sucker Punch", "Swift", "Tailwind", "Telekinesis (N)", "Trick", "Twister", "Wonder Room", "Zen Headbutt"]
+      "tutor": [
+        "Body Slam",
+        "Double-Edge",
+        "Draco Meteor",
+        {"name":"Dragon Dance","natural":true},
+        {"name":"Dragon Pulse","natural":true},
+        "Fury Cutter",
+        {"name":"Heal Pulse","natural":true},
+        "Helping Hand",
+        "Icy Wind",
+        "Last Resort",
+        "Magic Coat",
+        {"name":"Memento","natural":true},
+        "Mud-Slap",
+        "Outrage",
+        {"name":"Power Split","natural":true},
+        "Roost",
+        "Role Play",
+        "Sleep Talk",
+        "Snore",
+        "Sucker Punch",
+        "Swift",
+        "Tailwind",
+        {"name":"Telekinesis","natural":true},
+        "Trick",
+        "Twister",
+        "Wonder Room",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -1561,7 +1885,37 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"90","name":"Substitute"}
       ],
       "egg": [],
-      "tutor": ["Body Slam", "Charm (N)", "Covet", "Double-Edge", "Draco Meteor", "Dragon Pulse (N)", "Fury Cutter", "Guard Split (N)", "Heal Pulse (N)", "Healing Wish (N)", "Helping Hand", "Icy Wind", "Last Resort", "Magic Coat", "Magic Room", "Mud-Slap", "Outrage", "Reflect Type (N)", "Role Play", "Roost", "Sleep Talk", "Snore", "Sucker Punch", "Swift", "Tailwind", "Telekinesis", "Trick", "Twister", "Zen Headbutt"]
+      "tutor": [
+        "Body Slam",
+        {"name":"Charm","natural":true},
+        "Covet",
+        "Double-Edge",
+        "Draco Meteor",
+        {"name":"Dragon Pulse","natural":true},
+        "Fury Cutter",
+        {"name":"Guard Split","natural":true},
+        {"name":"Heal Pulse","natural":true},
+        {"name":"Healing Wish","natural":true},
+        "Helping Hand",
+        "Icy Wind",
+        "Last Resort",
+        "Magic Coat",
+        "Magic Room",
+        "Mud-Slap",
+        "Outrage",
+        {"name":"Reflect Type","natural":true},
+        "Role Play",
+        "Roost",
+        "Sleep Talk",
+        "Snore",
+        "Sucker Punch",
+        "Swift",
+        "Tailwind",
+        "Telekinesis",
+        "Trick",
+        "Twister",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -1634,7 +1988,8 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"50","name":"Overheat"},
         {"no":"53","name":"Energy Ball"},
         {"no":"59","name":"Incinerate"},
-        {"no":"61","name":"Will-O-Wisp 68 Giga Impact"},
+        {"no":"61","name":"Will-O-Wisp"},
+        {"no":"68","name":"Giga Impact"},
         {"no":"73","name":"Thunder Wave"},
         {"no":"77","name":"Psych Up"},
         {"no":"80","name":"Rock Slide"},
@@ -1645,7 +2000,33 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"99","name":"Dazzling Gleam"}
       ],
       "egg": [],
-      "tutor": ["After You", "Aromatherapy", "Defense Curl(N)", "Fire Spin", "Flame Burst", "Electric Terrain(N) Future Sight", "Heat Wave", "Gravity", "Heal Bell", "Helping Hand", "Hypnosis(N)", "Lucky Chant(N)", "Magic Coat", "Pain Split", "Psybeam", "Psycho Shift", "Skill Swap", "Sleep Talk", "Shock Wave", "Snore", "Telekinesis", "Trick", "Wonder Room", "Zen Headbutt"]
+      "tutor": [
+        "After You",
+        "Aromatherapy",
+        {"name":"Defense Curl","natural":true},
+        "Fire Spin",
+        "Flame Burst",
+        {"name":"Electric Terrain","natural":true},
+        "Future Sight",
+        "Heat Wave",
+        "Gravity",
+        "Heal Bell",
+        "Helping Hand",
+        {"name":"Hypnosis","natural":true},
+        {"name":"Lucky Chant","natural":true},
+        "Magic Coat",
+        "Pain Split",
+        "Psybeam",
+        "Psycho Shift",
+        "Skill Swap",
+        "Sleep Talk",
+        "Shock Wave",
+        "Snore",
+        "Telekinesis",
+        "Trick",
+        "Wonder Room",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -1740,7 +2121,37 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Body Slam", "Bullet Seed", "Counter", "Double-Edge", "Dragon Pulse", "Drain Punch", "Dynamic Punch", "Endeavor", "Focus Punch", "Frenzy Plant", "Giga Drain", "Grass Pledge", "Iron Tail", "Low Kick", "Mega Kick", "Mega Punch", "Mud-Slap", "Night Slash (N)", "Outrage", "Rock Climb", "Secret Power", "Seed Bomb", "Seismic Toss", "Sleep Talk", "Snore", "Swift", "Synthesis", "Thunder Punch", "Worry Seed"]
+      "tutor": [
+        "Body Slam",
+        "Bullet Seed",
+        "Counter",
+        "Double-Edge",
+        "Dragon Pulse",
+        "Drain Punch",
+        "Dynamic Punch",
+        "Endeavor",
+        "Focus Punch",
+        "Frenzy Plant",
+        "Giga Drain",
+        "Grass Pledge",
+        "Iron Tail",
+        "Low Kick",
+        "Mega Kick",
+        "Mega Punch",
+        "Mud-Slap",
+        {"name":"Night Slash","natural":true},
+        "Outrage",
+        "Rock Climb",
+        "Secret Power",
+        "Seed Bomb",
+        "Seismic Toss",
+        "Sleep Talk",
+        "Snore",
+        "Swift",
+        "Synthesis",
+        "Thunder Punch",
+        "Worry Seed"
+      ]
     }
   },
   {
@@ -1847,7 +2258,25 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Aura Sphere (N)", "Aurora Beam", "Bullet Punch", "Bullet Seed", "Charge Beam", "Confuse Ray", "Endure", "Magnet Bomb", "Meteor Beam", "Mirror Shot (N)", "Parting Shot", "Seed Bomb", "Signal Beam (N)", "Simple Beam", "Stored Power", "String Shot", "Swift"]
+      "tutor": [
+        {"name":"Aura Sphere","natural":true},
+        "Aurora Beam",
+        "Bullet Punch",
+        "Bullet Seed",
+        "Charge Beam",
+        "Confuse Ray",
+        "Endure",
+        "Magnet Bomb",
+        "Meteor Beam",
+        {"name":"Mirror Shot","natural":true},
+        "Parting Shot",
+        "Seed Bomb",
+        {"name":"Signal Beam","natural":true},
+        "Simple Beam",
+        "Stored Power",
+        "String Shot",
+        "Swift"
+      ]
     }
   },
   {
@@ -2008,7 +2437,8 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"48","name":"Round"},
         {"no":"53","name":"Energy Ball"},
         {"no":"59","name":"Incinerate"},
-        {"no":"61","name":"Will-O-Wisp 68 Giga Impact"},
+        {"no":"61","name":"Will-O-Wisp"},
+        {"no":"68","name":"Giga Impact"},
         {"no":"73","name":"Thunder Wave"},
         {"no":"77","name":"Psych Up"},
         {"no":"80","name":"Rock Slide"},
@@ -2019,7 +2449,24 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"99","name":"Dazzling Gleam"}
       ],
       "egg": [],
-      "tutor": ["After You", "Covet", "Drain Punch", "Electric Terrain (N) Focus Punch", "Giga Drain", "Grassy Terrain (N)", "Last Resort", "Seed Bomb", "Snatch", "Spite", "Synthesis", "Telekinesis", "Wood Hammer (N)", "Worry Seed", "Zen Headbutt"]
+      "tutor": [
+        "After You",
+        "Covet",
+        "Drain Punch",
+        {"name":"Electric Terrain","natural":true},
+        "Focus Punch",
+        "Giga Drain",
+        {"name":"Grassy Terrain","natural":true},
+        "Last Resort",
+        "Seed Bomb",
+        "Snatch",
+        "Spite",
+        "Synthesis",
+        "Telekinesis",
+        {"name":"Wood Hammer","natural":true},
+        "Worry Seed",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -2105,7 +2552,33 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Baton Pass", "Earth Power", "Electric Terrain (N)", "Encore", "Extrasensory", "Fiery Dance", "Foresight", "Gravity", "Kinesis", "Laser Focus", "Misty Terrain (N)", "Moon Beam", "Pain Split", "Petal Dance", "Recycle", "Role Play", "Snatch", "Snore", "Swift", "Stealth Rock", "Teleport", "Thundershock", "Trick", "Vacuum Wave", "Wonder Room"]
+      "tutor": [
+        "Baton Pass",
+        "Earth Power",
+        {"name":"Electric Terrain","natural":true},
+        "Encore",
+        "Extrasensory",
+        "Fiery Dance",
+        "Foresight",
+        "Gravity",
+        "Kinesis",
+        "Laser Focus",
+        {"name":"Misty Terrain","natural":true},
+        "Moon Beam",
+        "Pain Split",
+        "Petal Dance",
+        "Recycle",
+        "Role Play",
+        "Snatch",
+        "Snore",
+        "Swift",
+        "Stealth Rock",
+        "Teleport",
+        "Thundershock",
+        "Trick",
+        "Vacuum Wave",
+        "Wonder Room"
+      ]
     }
   },
   {
@@ -2278,7 +2751,23 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Aqua Tail", "Earth Power", "Freeze-Dry (N)", "Hyper Voice", "Icy Wind", "Iron Defense", "Iron Head", "Iron Tail", "Light Screen", "Magnet Rise", "Outrage", "Snore", "Stealth Rock", "Water Pulse", "Zen Headbutt"]
+      "tutor": [
+        "Aqua Tail",
+        "Earth Power",
+        {"name":"Freeze-Dry","natural":true},
+        "Hyper Voice",
+        "Icy Wind",
+        "Iron Defense",
+        "Iron Head",
+        "Iron Tail",
+        "Light Screen",
+        "Magnet Rise",
+        "Outrage",
+        "Snore",
+        "Stealth Rock",
+        "Water Pulse",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -2355,7 +2844,27 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"97","name":"Dark Pulse"}
       ],
       "egg": [],
-      "tutor": ["Air Cutter", "Dark Pulse", "Defog", "Double-Edge", "Extreme Speed", "Heat Wave", "Hurricane", "Hypnosis", "Lock-On", "Metronome", "Ominous Wind", "Quick Attack", "Rest", "Roost", "Sleep Talk", "Snore", "Swift", "Tailwind", "Whilwind (N)"]
+      "tutor": [
+        "Air Cutter",
+        "Dark Pulse",
+        "Defog",
+        "Double-Edge",
+        "Extreme Speed",
+        "Heat Wave",
+        "Hurricane",
+        "Hypnosis",
+        "Lock-On",
+        "Metronome",
+        "Ominous Wind",
+        "Quick Attack",
+        "Rest",
+        "Roost",
+        "Sleep Talk",
+        "Snore",
+        "Swift",
+        "Tailwind",
+        {"name":"Whilwind","natural":true}
+      ]
     }
   },
   {
@@ -2547,7 +3056,40 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Aqua Tail", "Bind (N)", "Body Slam", "Dark Pulse", "Defense Curl", "Double-Edge", "Dynamic Punch", "Endeavor", "Electric Terrain (N)", "Fire Punch", "Focus Punch", "Fury Cutter", "Gastro Acid", "Giga Drain", "Iron Tail", "Knock Off", "Last Resort", "Low Kick", "Mega Kick", "Mega Punch", "Rock Climb", "Rollout", "Seismic Toss", "Shock Wave", "Sleep Talk", "Snatch", "Snore", "Sucker Punch", "Swift", "Thunder Wave", "Thunder Punch", "Work Up"]
+      "tutor": [
+        "Aqua Tail",
+        {"name":"Bind","natural":true},
+        "Body Slam",
+        "Dark Pulse",
+        "Defense Curl",
+        "Double-Edge",
+        "Dynamic Punch",
+        "Endeavor",
+        {"name":"Electric Terrain","natural":true},
+        "Fire Punch",
+        "Focus Punch",
+        "Fury Cutter",
+        "Gastro Acid",
+        "Giga Drain",
+        "Iron Tail",
+        "Knock Off",
+        "Last Resort",
+        "Low Kick",
+        "Mega Kick",
+        "Mega Punch",
+        "Rock Climb",
+        "Rollout",
+        "Seismic Toss",
+        "Shock Wave",
+        "Sleep Talk",
+        "Snatch",
+        "Snore",
+        "Sucker Punch",
+        "Swift",
+        "Thunder Wave",
+        "Thunder Punch",
+        "Work Up"
+      ]
     }
   },
   {
@@ -2629,7 +3171,32 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Agility", "Air Cutter", "Ancient Power", "Body Slam", "Double-Edge", "Endeavor", "Endure", "Focus Blast", "Knock Off", "Mud-Slap", "Perish Song", "Pluck (N)", "Roost", "Sing", "Sky Attack", "Sleep Talk", "Snore", "Steel Wing", "Swift", "Uproar", "Tailwind", "Tri Attack (N)", "Work Up", "Zap Cannon"]
+      "tutor": [
+        "Agility",
+        "Air Cutter",
+        "Ancient Power",
+        "Body Slam",
+        "Double-Edge",
+        "Endeavor",
+        "Endure",
+        "Focus Blast",
+        "Knock Off",
+        "Mud-Slap",
+        "Perish Song",
+        {"name":"Pluck","natural":true},
+        "Roost",
+        "Sing",
+        "Sky Attack",
+        "Sleep Talk",
+        "Snore",
+        "Steel Wing",
+        "Swift",
+        "Uproar",
+        "Tailwind",
+        {"name":"Tri Attack","natural":true},
+        "Work Up",
+        "Zap Cannon"
+      ]
     }
   },
   {
@@ -2798,7 +3365,37 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"99","name":"Dazzling Gleam"}
       ],
       "egg": [],
-      "tutor": ["Air Slash", "Ancient Power", "Autotomize", "Avalanche", "Bounce", "Brave Bird", "Brine", "Dark Pulse", "Double-Edge", "Dragon Rush", "Drill Run", "Extreme Speed (N)", "Feint (N)", "Fury Cutter", "Hurricane", "Icy Wind", "Mud-Slap", "Night Slash (N)", "Sleep Talk", "Smart Strike", "Snore", "Spite", "Sucker Punch (N)", "Super Fang", "Swift", "Uproar", "Water Pulse", "Whirlpool", "Zen Headbutt"]
+      "tutor": [
+        "Air Slash",
+        "Ancient Power",
+        "Autotomize",
+        "Avalanche",
+        "Bounce",
+        "Brave Bird",
+        "Brine",
+        "Dark Pulse",
+        "Double-Edge",
+        "Dragon Rush",
+        "Drill Run",
+        {"name":"Extreme Speed","natural":true},
+        {"name":"Feint","natural":true},
+        "Fury Cutter",
+        "Hurricane",
+        "Icy Wind",
+        "Mud-Slap",
+        {"name":"Night Slash","natural":true},
+        "Sleep Talk",
+        "Smart Strike",
+        "Snore",
+        "Spite",
+        {"name":"Sucker Punch","natural":true},
+        "Super Fang",
+        "Swift",
+        "Uproar",
+        "Water Pulse",
+        "Whirlpool",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -2890,7 +3487,29 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"100","name":"Confide"}
       ],
       "egg": [],
-      "tutor": ["Air Cutter", "Bug Bite", "Comet Punch(N)", "Dynamic Punch", "Focus Punch", "Giga Drain", "Ice Punch", "Knock Off", "Mega Punch", "Moonlight", "Mud-Slap", "Quiver Dance", "Rollout", "Shock Wave", "Sleep Talk", "Snore", "String Shot", "Swift", "Tailwind", "Thunder Punch", "Uproar"]
+      "tutor": [
+        "Air Cutter",
+        "Bug Bite",
+        {"name":"Comet Punch","natural":true},
+        "Dynamic Punch",
+        "Focus Punch",
+        "Giga Drain",
+        "Ice Punch",
+        "Knock Off",
+        "Mega Punch",
+        "Moonlight",
+        "Mud-Slap",
+        "Quiver Dance",
+        "Rollout",
+        "Shock Wave",
+        "Sleep Talk",
+        "Snore",
+        "String Shot",
+        "Swift",
+        "Tailwind",
+        "Thunder Punch",
+        "Uproar"
+      ]
     }
   },
   {
@@ -2993,7 +3612,35 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"97","name":"Dark Pulse"}
       ],
       "egg": [],
-      "tutor": ["Body Slam", "Bounce", "Dark Pulse", "Detect (N)", "Electric Terrain (N)", "Foul Play", "Fury Cutter", "Icy Wind", "Iron Tail", "Knock Off", "Magic Coat", "Me First (N)", "Mud-Slap", "Perish Song (N)", "Razor Wind (N)", "Role Play", "Shock Wave", "Sleep Talk", "Snatch", "Snore", "Spite", "Sucker Punch", "Superpower", "Swift", "Taunt (N)", "Water Pulse", "Zen Headbutt"]
+      "tutor": [
+        "Body Slam",
+        "Bounce",
+        "Dark Pulse",
+        {"name":"Detect","natural":true},
+        {"name":"Electric Terrain","natural":true},
+        "Foul Play",
+        "Fury Cutter",
+        "Icy Wind",
+        "Iron Tail",
+        "Knock Off",
+        "Magic Coat",
+        {"name":"Me First","natural":true},
+        "Mud-Slap",
+        {"name":"Perish Song","natural":true},
+        {"name":"Razor Wind","natural":true},
+        "Role Play",
+        "Shock Wave",
+        "Sleep Talk",
+        "Snatch",
+        "Snore",
+        "Spite",
+        "Sucker Punch",
+        "Superpower",
+        "Swift",
+        {"name":"Taunt","natural":true},
+        "Water Pulse",
+        "Zen Headbutt"
+      ]
     }
   },
   {
@@ -3097,7 +3744,37 @@ window.KALYSIDEX.pokemon = (window.KALYSIDEX.pokemon || []).concat([
         {"no":"90","name":"Substitute"}
       ],
       "egg": [],
-      "tutor": ["Body Slam", "Charm (N)", "Covet", "Double-Edge", "Draco Meteor", "Dragon Pulse (N)", "Fury Cutter", "Guard Split (N)", "Heal Pulse (N)", "Healing Wish (N)", "Helping Hand", "Icy Wind", "Last Resort", "Magic Coat", "Magic Room", "Mud-Slap", "Outrage", "Reflect Type (N)", "Role Play", "Roost", "Sleep Talk", "Snore", "Sucker Punch", "Swift", "Tailwind", "Telekinesis", "Trick", "Twister", "Zen Headbutt", "New Moves:", "Move: Bone Maul", "Type: Ground", "Frequency: Scene", "AC: 4", "Damage Base 14: 4d10+15", "Class: Physical", "Range: Melee", "1 Target", "Effect: When you declare this attack you may choose to change the typing of this move between ground or fighting.", "Contest Type: Tough", "Contest Effect: Attention Grabber", "Move: Defibrillator Peck", "Type: Electric", "Category: Physical", "DB: 10", "Frequency: Scene x2", "AC: 6", "Range: Ranged Blast 2", "Effect: puts the target to sleep at 18+.", "Contest Type: Cool", "Contest Effect: Saving Grace", "Move: Genesis Strike", "Type: Normal", "Frequency: EoT", "AC: 2", "Damage Base 9: 2d10+10 / 21", "Class: Physical", "Range: Melee", "1 Target", "Effect: Genesis Strike is the same Type as the user's primary Type.", "Contest Type: Smart", "Contest Effect: Special Attention", "Move: Scopophobia", "Type: Ghost", "Frequency: EOT", "AC: 3", "DB: 6", "Class: Special", "Range: Ranged 1", "Effect: On 19+ Scopophobia freezes the target. On a 15+ Scopophobia flinches the target", "Contest type: Smart", "Contest Effect: Tease", "Move: Sonar Slice", "Type: Normal", "Frequency: EOT", "AC: 3", "DB: 10", "Class: Physical", "Sonic", "Range: Melee", "Effect: Sonar Slice may deal Fairy type damage if the user wishes", "Contest type: Tough", "Contest Effect: Big show", "(if this is move synced it will only affect the base move typing not the effect typing.)", "New Abilities:", "Ability: Element Sync [Paradox]", "Static", "Effect: If Genesis Adaptation has an elemental gem as a Held Item", "it will get the element of that stone as primary type. If not holding an elemental gem", "they are instead considered pure Normal Typed.", "Ability: Kevlar K149", "Static", "Effect: The user does not take tick damage from being Burned. Defensive.", "Ability: Primal Monarch", "Static", "Effect: Whenever the user uses a move with the Smite or Recoil Keywords", "they may either increase that move's damage base by +2", "or change that move to be Bug Type if it was not already.", "Bonus: Moves with the Recoil Keyword instead have a Recoil fraction of &frac14; if they do not already. This cannot be applied if the Recoil Keyword was added to the move by abilities or features.", "Ability: Psychostatic", "Daily x5 - Free Action", "Trigger: The user is hit by a Psychic type Attack", "or an attempt is made to unwillingly read the user's mind", "Effect: Roll a d10. On a roll of 1-6", "the triggering foe is paralyzed", "on a roll of 7-9", "the triggering foe is poisoned", "or on a roll of 10", "the triggering foe is both paralyzed and poisoned.", "Ability: Stone Bound Shell", "Static", "Effect: When the user is hit by a Super-Effective attack", "the attack deals x1.25 damage instead of x1.5 damage. If the user is hit by a Super-Super-Effective attack", "the attack deals x1.5 damage instead of x2 damage. Defensive.", "New Capabilities:", "Capability: Natural Elementalist", "Effect: They have a natural ability to use the powers of other types. They gain one of the following Struggle-Modifying capabilities depending on their Primary Type:", "Hived/Bug", "Umbral/Dark", "Noble/Dragon", "Zapper/Electric", "Faye Blessed/Fairy", "Champion/Fighting", "Firestarter/Fire", "Guster/Flying", "Paranormal/Ghost", "Flowering/Grass", "Tremorer/Ground", "Freezer/Ice", "Acidic/Poison", "Psyonic/Psychic", "Materializer/Rock", "Ferric/Steel", "Fountain/Water"]
+      "tutor": [
+        "Body Slam",
+        {"name":"Charm","natural":true},
+        "Covet",
+        "Double-Edge",
+        "Draco Meteor",
+        {"name":"Dragon Pulse","natural":true},
+        "Fury Cutter",
+        {"name":"Guard Split","natural":true},
+        {"name":"Heal Pulse","natural":true},
+        {"name":"Healing Wish","natural":true},
+        "Helping Hand",
+        "Icy Wind",
+        "Last Resort",
+        "Magic Coat",
+        "Magic Room",
+        "Mud-Slap",
+        "Outrage",
+        {"name":"Reflect Type","natural":true},
+        "Role Play",
+        "Roost",
+        "Sleep Talk",
+        "Snore",
+        "Sucker Punch",
+        "Swift",
+        "Tailwind",
+        "Telekinesis",
+        "Trick",
+        "Twister",
+        "Zen Headbutt"
+      ]
     }
   }
 ]);

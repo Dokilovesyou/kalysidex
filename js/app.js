@@ -454,7 +454,12 @@
     setNav('dex'); setTitle(p.name); setTheme(p.types[0]);
     const formTabs = p.formGroup ? POKEMON.filter(x => x.formGroup === p.formGroup && x.collection === p.collection) : [];
     const SIB = ORDERED.filter(x => x.collection === p.collection);
-    const i = SIB.indexOf(p), prev = SIB[i - 1], next = SIB[i + 1];
+    // every form of a Pokémon shares the same prev/next: the entries before and after the whole group
+    const members = p.formGroup ? SIB.filter(x => x.formGroup === p.formGroup) : [p];
+    const idx = members.map(x => SIB.indexOf(x));
+    const prev = SIB[Math.min(...idx) - 1], next = SIB[Math.max(...idx) + 1];
+    const navLink = x => pokeLink(x.formGroup ? (byGroup.get(x.collection + '|' + key(x.formGroup)) || x) : x);
+    const navName = x => x.formGroup ? (byGroup.get(x.collection + '|' + key(x.formGroup)) || x).name : x.name;
     const mv = p.moves || {};
     const ab = p.abilities || {};
     const abLinks = list => (list && list.length) ? list.map(a => `<a href="#/ability/${key(a)}" title="${esc((abilInfoByKey.get(key(a)) || {}).effect || '')}">${esc(a)}</a>`).join(', ') : '<span class="muted">—</span>';
@@ -468,7 +473,7 @@
 
     const levelRows = (mv.levelUp || []).map(e => { const t = moveType(e.name, e.type); return `<tr><td>${esc(e.level)}</td><td>${moveLink(e.name, p, e.type)}${e.only ? ` <small class="gonly">${e.only === 'M' ? '♂' : '♀'} only</small>` : ''}</td><td>${t ? typeChip(t, false) : ''}</td></tr>`; }).join('');
     const tmRows = (mv.tm || []).map(e => `<div><span class="no">${esc(e.no || '')}</span>${moveLink(e.name, p)}</div>`).join('');
-    const chipList = arr => `<div class="chips">${arr.map(n => { n = typeof n === 'string' ? n : n.name; const t = moveType(n); return `<a class="chip${t && p.types.includes(t) ? ' stab' : ''}" href="#/move/${key(n)}">${esc(n)}</a>`; }).join('')}</div>`;
+    const chipList = arr => `<div class="chips">${arr.map(e => { const n = typeof e === 'string' ? e : e.name; const t = moveType(n); return `<a class="chip${t && p.types.includes(t) ? ' stab' : ''}" href="#/move/${key(n)}">${esc(n)}${e.natural ? ' <sup class="nat" title="Natural move (marked (N) in the PTU Pokédex)">N</sup>' : ''}${e.only ? ` <small class="gonly">${e.only === 'M' ? '♂' : '♀'}</small>` : ''}</a>`; }).join('')}</div>`;
 
     app.innerHTML = `
       <div class="crumbs"><a href="#/">Pokédex</a> › ${esc(p.name)}</div>
@@ -478,8 +483,8 @@
         ${COLLS.length > 1 ? `<a class="dexchip big" href="#/?dex=${encodeURIComponent(p.collection)}" title="See this whole dex">${esc((COLLS.find(c => c.id === p.collection) || {}).name || p.collection)}</a>` : ''}
         <span class="grow"></span>
         <div class="prevnext">
-          ${prev ? `<a class="btn" href="${pokeLink(prev)}">‹ ${esc(prev.name)}</a>` : ''}
-          ${next ? `<a class="btn" href="${pokeLink(next)}">${esc(next.name)} ›</a>` : ''}
+          ${prev ? `<a class="btn" href="${navLink(prev)}">‹ ${esc(navName(prev))}</a>` : ''}
+          ${next ? `<a class="btn" href="${navLink(next)}">${esc(navName(next))} ›</a>` : ''}
         </div>
       </div>
       ${p.note ? `<p class="panel entrynote">${esc(p.note)}</p>` : ''}

@@ -217,3 +217,4 @@ a.dexchip:hover { outline: 2px solid var(--accent); }
 .ftab.on { color: var(--ink); background: var(--panel); border-color: var(--line); border-bottom: 2px solid var(--panel); }
 .entrynote { margin: 0 0 1rem; padding: .6rem .9rem; font-size: .9rem; color: var(--muted); }
 .gonly { font-size: .7rem; opacity: .7; margin-left: .3rem; }
+.chip .nat { font-size: .6rem; opacity: .7; margin-left: .1rem; vertical-align: super; }

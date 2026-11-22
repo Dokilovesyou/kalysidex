@@ -102,6 +102,46 @@
 
   const cleanArtist = a => (a ? a.replace(/^credits?\s*:?\s*/i, '').replace(/^.*\bLine\s*-\s*/i, '').trim() || undefined : undefined);
 
+  // ---- move-name hygiene ----
+  // The source docs are hand-typed, so lists contain missing commas ("Dive 06 Toxic"), "(N)" / "(M)" flags,
+  // stray numbers and the occasional paragraph. These helpers turn a raw list into clean move names.
+  const NOT_MOVE = /^(?:effect|trigger|type|frequency|freq|ac|class|category|range|db|damage base|contest|notes?|move|ability|capabilit(?:y|ies)|keywords?|bonus|daily|scene|eot|at-will|new |tutor move)\b/i;
+  const TRAILER = /\s*(?:\bMega Evolution\b|\bMultiform\b|\bDragon Fusion:|\*[A-Z][a-z]+ Forme\b|\(?\bLegendary Pok[eé]mon (?:are|have)\b|\bMew can be Tutored\b)/;
+  const cutTrailer = s => { const m = s.match(TRAILER); return m ? s.slice(0, m.index) : s; };
+  // put a comma where the doc forgot one
+  const mendCommas = s => s
+    .replace(/\(N\)\s*(?=[A-Za-z])/gi, '(N), ')
+    .replace(/([A-Za-z\)!])\s+(?=\([MF]\)\s)/g, '$1, ')
+    .replace(/([A-Za-z\)\.])\s+(?=[A-Za-z]?\d{1,3}\s+[A-Z])/g, '$1, ');
+  // -> { name, natural?, only? } or null when the text is not a move
+  function cleanMoveName(raw) {
+    let s = String(raw).replace(/\s+/g, ' ').trim(), only, natural = false;
+    s = s.replace(/^§\s*/, '');
+    const g = s.match(/^\(([MF])\)\s*/i);
+    if (g) { only = g[1].toUpperCase(); s = s.slice(g[0].length); }
+    if (/\(N\)\s*$/i.test(s)) { natural = true; s = s.replace(/\s*\(N\)\s*$/i, ''); }
+    s = s.replace(/^[A-Za-z]?\d{1,3}\s+(?=[A-Za-z])/, '');          // leftover TM number: "87 Swagger"
+    s = s.replace(/^[\s.,;:\-–]+|[\s.,;]+$/g, '').replace(/^Conversion2$/, 'Conversion 2');
+    if (s.length < 3 || s.length > 28 || s.split(' ').length > 5) return null;
+    if (!/^[A-Z]/.test(s) || NOT_MOVE.test(s)) return null;           // sentences, labels, "a vibe check"
+    if (/[:;"()\[\]+<>=*&]/.test(s) || (/\d/.test(s) && s !== 'Conversion 2')) return null;
+    const o = { name: s };
+    if (natural) o.natural = true;
+    if (only) o.only = only;
+    return o;
+  }
+  // egg / tutor lists: plain strings, or { name, natural, only } when the doc flagged them
+  const cleanMoveList = items => {
+    const seen = new Set(), out = [];
+    for (const it of items) {
+      const c = cleanMoveName(it);
+      if (!c || seen.has(c.name.toLowerCase())) continue;
+      seen.add(c.name.toLowerCase());
+      out.push(c.natural || c.only ? c : c.name);
+    }
+    return out;
+  };
+
   function parseLevelMove(line) {
     const gm = String(line).match(/^\s*\(([MF])\)\s*/i);   // "(M) 28 Charm - Fairy": only learned by one gender
     if (gm) { const r = parseLevelMove(String(line).slice(gm[0].length)); if (r) r.only = gm[1].toUpperCase(); return r; }
@@ -118,7 +158,7 @@
   function parseEntry(raw, opts = {}) {
     const warnings = [];
     const text = String(raw).replace(/\r/g, '').replace(/ /g, ' ').replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
-    const lines = text.split('\n').map(l => l.replace(/\s+/g, ' ').trim()).filter(Boolean);
+    const lines = text.split('\n').flatMap(l => l.replace(/\s+/g, ' ').trim().split(/\s+(?=(?:Basic|Adv|Advanced|High) Ability(?: \d+)?\s*:)/i)).filter(Boolean);
 
     let name = null, start = 0;
     if (lines.length && !lines[0].includes(':') && !SECTION_RE.test(lines[0])) { name = lines[0]; start = 1; }
@@ -239,17 +279,36 @@
 
     // Moves
     const levelUp = [];
-    for (const line of buckets.level) {
-      const mv = parseLevelMove(line);
-      if (mv) levelUp.push(mv); else warnings.push('Could not read level-up move: "' + line + '"');
+    let splitLevels = false;
+    for (const rawLine of buckets.level) {
+      // some lists are laid out in two columns ("3 Rollout 25 Work Up")
+      const parts = rawLine.split(/(?<!\([MF]\))(?<=[A-Za-z\)])\s+(?=(?:\d+|Evo)\s+[A-Z])/);
+      if (parts.length > 1) splitLevels = true;
+      for (const line of parts) {
+        const mv = parseLevelMove(line);
+        const c = mv && cleanMoveName(mv.name);
+        if (c) { mv.name = c.name; levelUp.push(mv); } else warnings.push('Could not read level-up move: "' + line + '"');
+      }
     }
-    const tm = splitTop(joinTm(buckets.tm)).filter(s => !/^(none|n\/a|-|—)$/i.test(s)).map(s => {
-      const m = s.match(/^(?:tm\s*)?([A-Za-z]?\d+)\s*[-–:]?\s*(.+)$/i);
-      return m ? { no: m[1].toUpperCase(), name: m[2].trim() } : { name: s };
-    });
+    if (splitLevels) levelUp.sort((a, b) => (typeof a.level === 'number' ? a.level : -1) - (typeof b.level === 'number' ? b.level : -1));
     const notNone = s => !/^(none|n\/a|-|—)$/i.test(s) && !/^[_\-–—=\s]+$/.test(s);
-    const egg = splitTop(joinLines(buckets.egg)).filter(notNone);
-    const tutor = splitTop(joinLines(buckets.tutor)).filter(notNone);
+    // a missing "Egg/Tutor Move List" heading can leave one list glued to the next
+    let tmText = joinTm(buckets.tm), glued = '';
+    const gi = tmText.search(/\s*s?Tutor Move List\b/i);
+    if (gi >= 0) { glued = tmText.slice(gi).replace(/^\s*s?Tutor Move List\s*/i, ''); tmText = tmText.slice(0, gi); }
+    const parseTm = s => { const m = s.match(/^(?:tm\s*)?([A-Za-z]?\d+)\s*[-–:]?\s*(.+)$/i); return m ? { no: m[1].toUpperCase(), name: m[2].trim() } : { name: s }; };
+    const tidy = s => splitTop(mendCommas(cutTrailer(s))).map(x => x.trim()).filter(notNone);
+    const tm = tidy(tmText).map(parseTm).map(e => { const c = cleanMoveName(e.name); return c ? (e.no ? { no: e.no, name: c.name } : { name: c.name }) : null; }).filter(Boolean);
+    const egg = cleanMoveList(tidy(joinLines(buckets.egg)));
+    let tutorRaw = tidy(joinLines(buckets.tutor));
+    if (glued) tutorRaw = tutorRaw.concat(tidy(glued));
+    // a TM list under a "Tutor Move List" heading (numbered items, no real TM list)
+    const numbered = tutorRaw.filter(x => /^[A-Za-z]?\d{1,3}\s+[A-Z]/.test(x));
+    if (!tm.length && numbered.length >= 3) {
+      numbered.map(parseTm).forEach(e => { const c = cleanMoveName(e.name); if (c) tm.push({ no: e.no, name: c.name }); });
+      tutorRaw = tutorRaw.filter(x => !numbered.includes(x));
+    }
+    const tutor = cleanMoveList(tutorRaw);
     if (!levelUp.length && !tm.length && !egg.length && !tutor.length) warnings.push('No moves found.');
 
     const pokemon = {
@@ -269,7 +328,7 @@
   // ---- whole-document import ----
   // Finds every "Base Stats:" block, walks back to the Pokémon's name line, and cuts the text into entries.
   // Stops at the Rotom / New Moves / New Abilities sections, which use different layouts.
-  const STOP_RE = /^\s*(Rotom( Forms)?|New Moves|New Abilities)\s*$/i;
+  const STOP_RE = /^\s*(Rotom( Forms)?|New (?:Moves|Abilities|Capabilities)|Abilities and Moves|Moves and Abilities|Tutor Move Candidates)\s*:?\s*$/i;
   function splitEntries(raw) {
     const lines = String(raw).replace(/\r/g, '').replace(/ /g, ' ').split('\n');
     const starts = [];
@@ -464,6 +523,6 @@
       'window.KALYSIDEX.pokemon = ' + fmt(list) + ';\n';
   }
 
-  const api = { parseEntry, splitEntries, parseDex, parseSections, parseBlocks, htmlToSeq, mapImages, parseHtmlDoc, toDataFile, toDictFile, slug, TYPES };
+  const api = { cleanMoveName, parseEntry, splitEntries, parseDex, parseSections, parseBlocks, htmlToSeq, mapImages, parseHtmlDoc, toDataFile, toDictFile, slug, TYPES };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.KalysidexParser = api;
 })(typeof window !== 'undefined' ? window : globalThis);
